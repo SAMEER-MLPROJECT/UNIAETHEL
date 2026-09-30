@@ -1,0 +1,102 @@
+# UniAethel v3 - every tunable is here, not in code.
+seed: 42
+internal_networks: ["10.0.0.0/8"]
+
+observation:
+  # unpaired: every packet on the tap is processed as its own directional observation, never paired
+  # egress_only / ingress_only: only packets leaving / entering the internal networks reach the sensor
+  mode: unpaired
+  flow_idle_timeout_s: 60
+
+windowing:
+  window_seconds: 5
+  step_seconds: 1
+  history_windows: 30
+  periodicity_horizon_s: 60      # history used for recurrence / periodicity
+  contact_gap_s: 1.0             # packets to the same destination closer than this form one contact
+  min_contacts: 4                # contacts needed before periodicity is defined
+  persistence_horizon_s: 30      # destination persistence / sustained transfer horizon
+  sustained_min_bytes_per_s: 20000
+
+engines:
+  mahalanobis:
+    regularization: ledoit_wolf
+    features: [log_pps_out, log_bps_out, flow_count, mean_pkt_len, std_pkt_len, log_mean_iat, jitter,
+               fan_out, fan_in, conn_attempt_rate, new_destination_rate, log_pps_in, log_bps_in, sustained_transfer_ratio]
+  isolation_forest:
+    n_estimators: 200
+    max_samples: 256
+    max_features: 1.0
+    features: [log_pps_out, log_bps_out, flow_count, mean_pkt_len, std_pkt_len, min_pkt_len, max_pkt_len,
+               log_mean_iat, std_iat, jitter, iat_q10, iat_q50, iat_q90, fan_out, fan_in, unique_dst_ports,
+               conn_attempt_rate, new_destination_rate, destination_persistence, periodicity,
+               log_pps_in, log_bps_in, sustained_transfer_ratio, log_max_flow_duration]
+  tcn:
+    channels: [log_pps_out, log_bps_out, fan_out, log_pps_in, fan_in, periodicity_new, destination_persistence]
+    hidden: 16
+    kernel: 3
+    dilations: [1, 2, 4, 8]
+    train_steps: 600
+    batch: 32
+    crop: 64
+    lr: 0.003
+    error_smoothing: 5
+  graph:
+    window_s: 30
+    louvain_every: 5
+    louvain_resolution: 1.0
+    hub_degree_factor: 3.0
+    external_prefix: 24
+    persistent_history: 60
+    persistent_bucket_s: 10
+    persistent_min_buckets: 3
+    # edge weight w_ij = alpha*frequency + beta*bytes + gamma*persistence (normalised); Louvain uses log bytes
+    edge_weight: {alpha: 0.4, beta: 0.4, gamma: 0.2}
+
+calibration:
+  tail_quantile: 0.99            # A = 0.99 means "as rare as the top 1% of this host's benign validation windows"
+
+severity:
+  weights: {M: 0.25, IF: 0.25, TCN: 0.25, G: 0.25}   # equal: validation did not justify anything else
+  # geometric: S = 1 - prod (1 - A_i)^w_i  (adopted on validation evidence: with arithmetic pooling a C2
+  # beacon seen by TCN + Graph scores S=0.74 while normal hosts reach 0.96 at their 99th percentile;
+  # geometric gives C2 0.9994 > normal max 0.9952). Arithmetic is kept as ablation rung G_arithmetic_severity.
+  pooling: geometric
+
+corroboration:
+  tau: {M: 0.99, IF: 0.99, TCN: 0.99, G: 0.99}
+  n_min: 2
+
+persistence:
+  k: 6
+  p_min: 0.5
+
+trajectory:
+  slope_windows: 10
+  hysteresis: 10
+  domain_window: 30
+  domain_fraction: 0.8
+  domain_tau_grid: [0.999]
+
+decision:
+  max_false_per_hour: 1.0        # FP budget used to set tau_sev on validation
+  merge_gap: 5
+  grace_s: 30
+
+attack_vector:
+  gamma: linear                  # gamma(C) = C / 4
+  tau_class: null                # set on validation by scripts/train_models.py (see target_known_reject)
+  delta_margin: null
+  target_known_reject: 0.10      # rejection thresholds admit ~10% rejection of KNOWN validation incidents
+  weights:
+    # validation change (documented in docs/CLASSIFICATION.md): cyclic scans re-contact each target on a
+    # schedule, so periodicity alone read recon as C2; C2 recurrence is concentrated on one destination.
+    C2:    {A_TCN: 0.15, A_G: 0.15, periodicity: 0.20, destination_persistence: 0.15, jitter_regularity: 0.10, destination_focus: 0.25}
+    RECON: {A_G: 0.30, new_edge_rate: 0.20, fan_out: 0.20, destination_diversity: 0.20, A_IF: 0.10}
+    DDOS:  {A_M: 0.15, A_IF: 0.10, packet_rate_anomaly: 0.20, byte_rate_anomaly: 0.10, burst_growth: 0.15, many_to_one: 0.30}
+    EXFIL: {A_M: 0.10, A_IF: 0.10, outbound_volume: 0.25, flow_duration: 0.15, sustained_transfer: 0.25, destination_novelty: 0.15}
+
+paths:
+  data: data
+  results: results
+  models: results/models

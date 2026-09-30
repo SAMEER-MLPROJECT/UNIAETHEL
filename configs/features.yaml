@@ -1,0 +1,41 @@
+# Feature registry. requires_reverse=true features need the opposite direction of the same session
+# (pairing requests with responses). They are computed ONLY in "bidirectional_research" mode and are
+# automatically excluded in every one-way mode. No engine uses them.
+features:
+  - {name: pps_out, group: volume, requires_reverse: false, one_way_safe: true, desc: packets/s sent by host}
+  - {name: bps_out, group: volume, requires_reverse: false, one_way_safe: true, desc: bytes/s sent by host}
+  - {name: packet_count, group: volume, requires_reverse: false, one_way_safe: true, desc: packets sent in window}
+  - {name: flow_count, group: volume, requires_reverse: false, one_way_safe: true, desc: distinct directional 5-tuples}
+  - {name: mean_pkt_len, group: packet, requires_reverse: false, one_way_safe: true}
+  - {name: std_pkt_len, group: packet, requires_reverse: false, one_way_safe: true}
+  - {name: min_pkt_len, group: packet, requires_reverse: false, one_way_safe: true}
+  - {name: max_pkt_len, group: packet, requires_reverse: false, one_way_safe: true}
+  - {name: mean_iat, group: timing, requires_reverse: false, one_way_safe: true}
+  - {name: std_iat, group: timing, requires_reverse: false, one_way_safe: true}
+  - {name: jitter, group: timing, requires_reverse: false, one_way_safe: true, desc: mean |IAT_i - IAT_(i-1)|}
+  - {name: iat_q10, group: timing, requires_reverse: false, one_way_safe: true}
+  - {name: iat_q50, group: timing, requires_reverse: false, one_way_safe: true}
+  - {name: iat_q90, group: timing, requires_reverse: false, one_way_safe: true}
+  - {name: periodicity, group: timing, requires_reverse: false, one_way_safe: true, desc: 1 - CV of contact intervals to best recurrent destination (60 s)}
+  - {name: jitter_regularity, group: timing, requires_reverse: false, one_way_safe: true, desc: 1 - relative jitter of contact intervals}
+  - {name: recurrence_interval, group: timing, requires_reverse: false, one_way_safe: true}
+  - {name: fan_out, group: communication, requires_reverse: false, one_way_safe: true, desc: distinct destinations}
+  - {name: fan_in, group: communication, requires_reverse: false, one_way_safe: true, desc: distinct sources seen sending TO host on the observed path}
+  - {name: unique_dst_ports, group: communication, requires_reverse: false, one_way_safe: true}
+  - {name: conn_attempt_rate, group: communication, requires_reverse: false, one_way_safe: true, desc: TCP SYN-without-ACK per second}
+  - {name: new_destination_rate, group: communication, requires_reverse: false, one_way_safe: true, desc: share of destinations not contacted in previous 60 s}
+  - {name: destination_persistence, group: communication, requires_reverse: false, one_way_safe: true}
+  - {name: pps_in, group: volume, requires_reverse: false, one_way_safe: true, desc: packets/s addressed to host (independent observation, not paired)}
+  - {name: bps_in, group: volume, requires_reverse: false, one_way_safe: true}
+  - {name: outbound_bytes, group: transfer, requires_reverse: false, one_way_safe: true}
+  - {name: max_flow_duration, group: transfer, requires_reverse: false, one_way_safe: true, desc: age of the longest active directional flow}
+  - {name: sustained_transfer_ratio, group: transfer, requires_reverse: false, one_way_safe: true}
+  - {name: new_edges, group: graph, requires_reverse: false, one_way_safe: true}
+  - {name: persistent_new_edges, group: graph, requires_reverse: false, one_way_safe: true}
+  - {name: cross_community_new, group: graph, requires_reverse: false, one_way_safe: true}
+  - {name: fan_out_z, group: graph, requires_reverse: false, one_way_safe: true}
+  - {name: fan_in_z, group: graph, requires_reverse: false, one_way_safe: true}
+  - {name: novel_in_sources, group: graph, requires_reverse: false, one_way_safe: true}
+  - {name: community_instability, group: graph, requires_reverse: false, one_way_safe: true}
+  - {name: bidirectional_byte_ratio, group: session, requires_reverse: true, one_way_safe: false, desc: bytes out / bytes back on the same session}
+  - {name: handshake_completion_rate, group: session, requires_reverse: true, one_way_safe: false, desc: SYNs answered by SYN-ACK}

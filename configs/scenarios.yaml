@@ -1,0 +1,73 @@
+# Scenario catalogue. Each capture = benign background + at most one event. Duration 300 s.
+duration_s: 300
+types:
+  normal:          {class: BENIGN, desc: "web-like browsing, DNS, telemetry (30 s), NTP-like (64 s), API polling (15 s), health checks, public web server"}
+  heartbeat:       {class: BENIGN, hard_negative_for: C2, desc: "legitimate 10 s heartbeat to a service"}
+  telemetry_new:   {class: BENIGN, hard_negative_for: C2, desc: "newly deployed agent on 3 hosts, 5 s period"}
+  api_polling:     {class: BENIGN, hard_negative_for: C2, desc: "fast API polling every 2 s"}
+  inventory:       {class: BENIGN, hard_negative_for: RECON, desc: "config-management inventory sweep from the admin host"}
+  app_restart:     {class: BENIGN, hard_negative_for: RECON, desc: "application restart reconnecting to 8 internal peers"}
+  flash_crowd:     {class: BENIGN, hard_negative_for: DDOS, desc: "6x surge of web clients for 60 s"}
+  load_test:       {class: BENIGN, hard_negative_for: DDOS, desc: "4 internal load generators against the web server"}
+  backup:          {class: BENIGN, hard_negative_for: EXFIL, desc: "40 MB internal backup to the file server"}
+  cloud_sync:      {class: BENIGN, hard_negative_for: EXFIL, desc: "25 MB sync to a known external cloud service"}
+  software_update: {class: BENIGN, hard_negative_for: EXFIL, desc: "8 hosts download 6 MB each (inbound)"}
+  c2:              {class: C2, desc: "small periodic beacon to one external host"}
+  recon:           {class: RECON, desc: "host/port scan of the internal network with growing fan-out"}
+  ddos:            {class: DDOS, desc: "many sources to one target, rate ramp"}
+  exfil:           {class: EXFIL, desc: "sustained or chunked outbound transfer to a new external host"}
+  unknown_dns_tunnel: {class: UNKNOWN, desc: "novel: high-rate irregular UDP/53 bursts with large payloads to the resolver; not used to define any profile"}
+
+defaults:
+  c2: {period_s: 10.0, jitter: 0.05, host: 10.0.0.25, dst: 198.51.100.42, duration_s: 150}
+  recon: {start_rate: 0.5, end_rate: 4.0, host: 10.0.0.25, duration_s: 120}
+  ddos: {peak_pps: 300, ramp_s: 30, target: 10.0.0.80, sources: 400, duration_s: 90}
+  exfil: {mbytes: 15, host: 10.0.0.25, dst: 198.51.100.77, duration_s: 150, chunk_period_s: 0}
+  unknown_dns_tunnel: {host: 10.0.0.25, pps: 6, duration_s: 150}
+
+splits:
+  train: [{type: normal, seeds: [1, 2, 3, 4, 5, 6]}]
+  val:
+    - {type: normal, seeds: [11, 12, 13, 14, 15, 16]}   # round 2: 6 benign calibration captures (was 2)
+    - {type: c2, seeds: [21, 22]}
+    - {type: recon, params: {start_rate: 2.0, end_rate: 6.0}, seeds: [21, 22]}
+    - {type: ddos, seeds: [21, 22]}
+    - {type: exfil, seeds: [21, 22]}
+    - {type: heartbeat, seeds: [21]}
+    - {type: inventory, seeds: [21]}
+    - {type: flash_crowd, seeds: [21]}
+    - {type: backup, seeds: [21]}
+  test:
+    - {type: normal, seeds: [201, 202]}
+    - {type: c2, params: {period_s: 7.5, dst: 198.51.100.43}, seeds: [201, 202]}
+    - {type: c2, params: {jitter: 0.30, dst: 198.51.100.44}, seeds: [203, 204]}
+    - {type: recon, params: {start_rate: 0.2, end_rate: 1.0, duration_s: 180}, seeds: [201, 202]}
+    - {type: recon, params: {start_rate: 3.0, end_rate: 8.0, duration_s: 60}, seeds: [203, 204]}
+    - {type: ddos, params: {peak_pps: 200, ramp_s: 60}, seeds: [201, 202]}
+    - {type: exfil, params: {mbytes: 10, dst: 198.51.100.78}, seeds: [201, 202]}
+    - {type: exfil, params: {mbytes: 6, chunk_period_s: 20, duration_s: 200, dst: 198.51.100.79}, seeds: [203, 204]}
+    - {type: unknown_dns_tunnel, seeds: [201, 202]}
+    - {type: heartbeat, seeds: [201]}
+    - {type: telemetry_new, seeds: [201]}
+    - {type: api_polling, seeds: [201]}
+    - {type: inventory, seeds: [201]}
+    - {type: app_restart, seeds: [201]}
+    - {type: flash_crowd, seeds: [201]}
+    - {type: load_test, seeds: [201]}
+    - {type: backup, seeds: [201]}
+    - {type: cloud_sync, seeds: [201]}
+    - {type: software_update, seeds: [201]}
+  demo:
+    - {name: demo1_c2, type: c2, seeds: [42]}
+    - {name: demo2_recon, type: recon, params: {start_rate: 0.3, end_rate: 3.0, duration_s: 150}, seeds: [42]}
+    - {name: demo3_ddos, type: ddos, seeds: [42]}
+    - {name: demo4_exfil, type: exfil, seeds: [42]}
+    - {name: demo5_unknown, type: unknown_dns_tunnel, seeds: [42]}
+
+sweeps:   # robustness; seeds 301-302 per point, never used elsewhere
+  c2_jitter: {type: c2, param: jitter, values: [0.0, 0.1, 0.2, 0.3, 0.5]}
+  recon_speed: {type: recon, param: end_rate, values: [0.5, 1.0, 2.0, 4.0, 8.0]}
+  ddos_volume: {type: ddos, param: peak_pps, values: [25, 50, 100, 200, 400]}
+  exfil_speed: {type: exfil, param: mbytes, values: [1, 3, 6, 12, 24]}
+  packet_loss: {values: [0.0, 0.1, 0.3, 0.5]}          # applied at parse time to the 4 demo attacks
+  observation: {values: [unpaired, egress_only, ingress_only]}
