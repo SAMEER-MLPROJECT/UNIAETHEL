@@ -3,8 +3,7 @@ seed: 42
 internal_networks: ["10.0.0.0/8"]
 
 observation:
-  # unpaired: every packet on the tap is processed as its own directional observation, never paired
-  # egress_only / ingress_only: only packets leaving / entering the internal networks reach the sensor
+  
   mode: unpaired
   flow_idle_timeout_s: 60
 
@@ -12,10 +11,10 @@ windowing:
   window_seconds: 5
   step_seconds: 1
   history_windows: 30
-  periodicity_horizon_s: 60      # history used for recurrence / periodicity
+  periodicity_horizon_s: 60      
   contact_gap_s: 1.0             # packets to the same destination closer than this form one contact
-  min_contacts: 4                # contacts needed before periodicity is defined
-  persistence_horizon_s: 30      # destination persistence / sustained transfer horizon
+  min_contacts: 4                
+  persistence_horizon_s: 30      
   sustained_min_bytes_per_s: 20000
 
 engines:
@@ -50,17 +49,14 @@ engines:
     persistent_history: 60
     persistent_bucket_s: 10
     persistent_min_buckets: 3
-    # edge weight w_ij = alpha*frequency + beta*bytes + gamma*persistence (normalised); Louvain uses log bytes
+    # I am using linear combination of theese
     edge_weight: {alpha: 0.4, beta: 0.4, gamma: 0.2}
 
 calibration:
-  tail_quantile: 0.99            # A = 0.99 means "as rare as the top 1% of this host's benign validation windows"
+  tail_quantile: 0.99           
 
 severity:
   weights: {M: 0.25, IF: 0.25, TCN: 0.25, G: 0.25}   # equal: validation did not justify anything else
-  # geometric: S = 1 - prod (1 - A_i)^w_i  (adopted on validation evidence: with arithmetic pooling a C2
-  # beacon seen by TCN + Graph scores S=0.74 while normal hosts reach 0.96 at their 99th percentile;
-  # geometric gives C2 0.9994 > normal max 0.9952). Arithmetic is kept as ablation rung G_arithmetic_severity.
   pooling: geometric
 
 corroboration:
@@ -79,13 +75,13 @@ trajectory:
   domain_tau_grid: [0.999]
 
 decision:
-  max_false_per_hour: 1.0        # FP budget used to set tau_sev on validation
+  max_false_per_hour: 1.0        
   merge_gap: 5
   grace_s: 30
 
 attack_vector:
   gamma: linear                  # gamma(C) = C / 4
-  tau_class: null                # set on validation by scripts/train_models.py (see target_known_reject)
+  tau_class: null                
   delta_margin: null
   target_known_reject: 0.10      # rejection thresholds admit ~10% rejection of KNOWN validation incidents
   weights:
