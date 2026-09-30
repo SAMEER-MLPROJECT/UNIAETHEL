@@ -1,4 +1,4 @@
-# Scenario catalogue. Each capture = benign background + at most one event. Duration 300 s.
+
 duration_s: 300
 types:
   normal:          {class: BENIGN, desc: "web-like browsing, DNS, telemetry (30 s), NTP-like (64 s), API polling (15 s), health checks, public web server"}
