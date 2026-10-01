@@ -1,0 +1,1698 @@
+generated_by: scripts/generate_demo_data.py
+backend: fast
+synthetic: true
+captures:
+- file: data/train/normal_s1.pcap
+  split: train
+  scenario: normal
+  seed: 1
+  class: BENIGN
+  malicious: false
+  hard_negative_for: null
+  host: null
+  start: null
+  end: null
+  packets: 31709
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params: {}
+- file: data/train/normal_s2.pcap
+  split: train
+  scenario: normal
+  seed: 2
+  class: BENIGN
+  malicious: false
+  hard_negative_for: null
+  host: null
+  start: null
+  end: null
+  packets: 29669
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params: {}
+- file: data/train/normal_s3.pcap
+  split: train
+  scenario: normal
+  seed: 3
+  class: BENIGN
+  malicious: false
+  hard_negative_for: null
+  host: null
+  start: null
+  end: null
+  packets: 28333
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params: {}
+- file: data/train/normal_s4.pcap
+  split: train
+  scenario: normal
+  seed: 4
+  class: BENIGN
+  malicious: false
+  hard_negative_for: null
+  host: null
+  start: null
+  end: null
+  packets: 27989
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params: {}
+- file: data/train/normal_s5.pcap
+  split: train
+  scenario: normal
+  seed: 5
+  class: BENIGN
+  malicious: false
+  hard_negative_for: null
+  host: null
+  start: null
+  end: null
+  packets: 28542
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params: {}
+- file: data/train/normal_s6.pcap
+  split: train
+  scenario: normal
+  seed: 6
+  class: BENIGN
+  malicious: false
+  hard_negative_for: null
+  host: null
+  start: null
+  end: null
+  packets: 26391
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params: {}
+- file: data/val/normal_s11.pcap
+  split: val
+  scenario: normal
+  seed: 11
+  class: BENIGN
+  malicious: false
+  hard_negative_for: null
+  host: null
+  start: null
+  end: null
+  packets: 31702
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params: {}
+- file: data/val/normal_s12.pcap
+  split: val
+  scenario: normal
+  seed: 12
+  class: BENIGN
+  malicious: false
+  hard_negative_for: null
+  host: null
+  start: null
+  end: null
+  packets: 30624
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params: {}
+- file: data/val/normal_s13.pcap
+  split: val
+  scenario: normal
+  seed: 13
+  class: BENIGN
+  malicious: false
+  hard_negative_for: null
+  host: null
+  start: null
+  end: null
+  packets: 29864
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params: {}
+- file: data/val/normal_s14.pcap
+  split: val
+  scenario: normal
+  seed: 14
+  class: BENIGN
+  malicious: false
+  hard_negative_for: null
+  host: null
+  start: null
+  end: null
+  packets: 26554
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params: {}
+- file: data/val/normal_s15.pcap
+  split: val
+  scenario: normal
+  seed: 15
+  class: BENIGN
+  malicious: false
+  hard_negative_for: null
+  host: null
+  start: null
+  end: null
+  packets: 25453
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params: {}
+- file: data/val/normal_s16.pcap
+  split: val
+  scenario: normal
+  seed: 16
+  class: BENIGN
+  malicious: false
+  hard_negative_for: null
+  host: null
+  start: null
+  end: null
+  packets: 24033
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params: {}
+- file: data/val/c2_s21.pcap
+  split: val
+  scenario: c2
+  seed: 21
+  class: C2
+  malicious: true
+  hard_negative_for: null
+  host: 10.0.0.25
+  start: 82.44072060369452
+  end: 232.4407206036945
+  packets: 28172
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params:
+    period_s: 10.0
+    jitter: 0.05
+    host: 10.0.0.25
+    dst: 198.51.100.42
+    duration_s: 150
+- file: data/val/c2_s22.pcap
+  split: val
+  scenario: c2
+  seed: 22
+  class: C2
+  malicious: true
+  hard_negative_for: null
+  host: 10.0.0.25
+  start: 126.88000507244136
+  end: 276.88000507244135
+  packets: 28182
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params:
+    period_s: 10.0
+    jitter: 0.05
+    host: 10.0.0.25
+    dst: 198.51.100.42
+    duration_s: 150
+- file: data/val/recon_start_rate2.0_end_rate6.0_s21.pcap
+  split: val
+  scenario: recon
+  seed: 21
+  class: RECON
+  malicious: true
+  hard_negative_for: null
+  host: 10.0.0.25
+  start: 82.44072060369452
+  end: 202.4407206036945
+  packets: 28622
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params:
+    start_rate: 2.0
+    end_rate: 6.0
+    host: 10.0.0.25
+    duration_s: 120
+- file: data/val/recon_start_rate2.0_end_rate6.0_s22.pcap
+  split: val
+  scenario: recon
+  seed: 22
+  class: RECON
+  malicious: true
+  hard_negative_for: null
+  host: 10.0.0.25
+  start: 126.88000507244136
+  end: 246.88000507244135
+  packets: 28632
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params:
+    start_rate: 2.0
+    end_rate: 6.0
+    host: 10.0.0.25
+    duration_s: 120
+- file: data/val/ddos_s21.pcap
+  split: val
+  scenario: ddos
+  seed: 21
+  class: DDOS
+  malicious: true
+  hard_negative_for: null
+  host: 10.0.0.80
+  start: 82.44072060369452
+  end: 172.4407206036945
+  packets: 50637
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params:
+    peak_pps: 300
+    ramp_s: 30
+    target: 10.0.0.80
+    sources: 400
+    duration_s: 90
+- file: data/val/ddos_s22.pcap
+  split: val
+  scenario: ddos
+  seed: 22
+  class: DDOS
+  malicious: true
+  hard_negative_for: null
+  host: 10.0.0.80
+  start: 126.88000507244136
+  end: 216.88000507244135
+  packets: 50647
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params:
+    peak_pps: 300
+    ramp_s: 30
+    target: 10.0.0.80
+    sources: 400
+    duration_s: 90
+- file: data/val/exfil_s21.pcap
+  split: val
+  scenario: exfil
+  seed: 21
+  class: EXFIL
+  malicious: true
+  hard_negative_for: null
+  host: 10.0.0.25
+  start: 82.44072060369452
+  end: 232.4407206036945
+  packets: 54225
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params:
+    mbytes: 15
+    host: 10.0.0.25
+    dst: 198.51.100.77
+    duration_s: 150
+    chunk_period_s: 0
+- file: data/val/exfil_s22.pcap
+  split: val
+  scenario: exfil
+  seed: 22
+  class: EXFIL
+  malicious: true
+  hard_negative_for: null
+  host: 10.0.0.25
+  start: 126.88000507244136
+  end: 276.88000507244135
+  packets: 52428
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params:
+    mbytes: 15
+    host: 10.0.0.25
+    dst: 198.51.100.77
+    duration_s: 150
+    chunk_period_s: 0
+- file: data/val/heartbeat_s21.pcap
+  split: val
+  scenario: heartbeat
+  seed: 21
+  class: BENIGN
+  malicious: false
+  hard_negative_for: C2
+  host: 10.0.3.12
+  start: 0
+  end: 300
+  packets: 28186
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params:
+    duration_s: 300
+- file: data/val/inventory_s21.pcap
+  split: val
+  scenario: inventory
+  seed: 21
+  class: BENIGN
+  malicious: false
+  hard_negative_for: RECON
+  host: 10.0.3.10
+  start: 82.44072060369452
+  end: 97.64072060369452
+  packets: 28161
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params:
+    duration_s: 300
+- file: data/val/flash_crowd_s21.pcap
+  split: val
+  scenario: flash_crowd
+  seed: 21
+  class: BENIGN
+  malicious: false
+  hard_negative_for: DDOS
+  host: 10.0.0.80
+  start: 82.44072060369452
+  end: 142.4407206036945
+  packets: 46348
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params:
+    duration_s: 300
+- file: data/val/backup_s21.pcap
+  split: val
+  scenario: backup
+  seed: 21
+  class: BENIGN
+  malicious: false
+  hard_negative_for: EXFIL
+  host: 10.0.1.12
+  start: 82.44072060369452
+  end: 202.4407206036945
+  packets: 93341
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params:
+    duration_s: 300
+- file: data/test/normal_s201.pcap
+  split: test
+  scenario: normal
+  seed: 201
+  class: BENIGN
+  malicious: false
+  hard_negative_for: null
+  host: null
+  start: null
+  end: null
+  packets: 28928
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params: {}
+- file: data/test/normal_s202.pcap
+  split: test
+  scenario: normal
+  seed: 202
+  class: BENIGN
+  malicious: false
+  hard_negative_for: null
+  host: null
+  start: null
+  end: null
+  packets: 29871
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params: {}
+- file: data/test/c2_period_s7.5_s201.pcap
+  split: test
+  scenario: c2
+  seed: 201
+  class: C2
+  malicious: true
+  hard_negative_for: null
+  host: 10.0.0.25
+  start: 83.01995032622612
+  end: 233.01995032622614
+  packets: 28970
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params:
+    period_s: 7.5
+    jitter: 0.05
+    host: 10.0.0.25
+    dst: 198.51.100.43
+    duration_s: 150
+- file: data/test/c2_period_s7.5_s202.pcap
+  split: test
+  scenario: c2
+  seed: 202
+  class: C2
+  malicious: true
+  hard_negative_for: null
+  host: 10.0.0.25
+  start: 94.45470438237038
+  end: 244.45470438237038
+  packets: 29913
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params:
+    period_s: 7.5
+    jitter: 0.05
+    host: 10.0.0.25
+    dst: 198.51.100.43
+    duration_s: 150
+- file: data/test/c2_jitter0.3_s203.pcap
+  split: test
+  scenario: c2
+  seed: 203
+  class: C2
+  malicious: true
+  hard_negative_for: null
+  host: 10.0.0.25
+  start: 98.57069742377372
+  end: 248.5706974237737
+  packets: 28244
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params:
+    period_s: 10.0
+    jitter: 0.3
+    host: 10.0.0.25
+    dst: 198.51.100.44
+    duration_s: 150
+- file: data/test/c2_jitter0.3_s204.pcap
+  split: test
+  scenario: c2
+  seed: 204
+  class: C2
+  malicious: true
+  hard_negative_for: null
+  host: 10.0.0.25
+  start: 84.00815468760418
+  end: 234.0081546876042
+  packets: 31325
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params:
+    period_s: 10.0
+    jitter: 0.3
+    host: 10.0.0.25
+    dst: 198.51.100.44
+    duration_s: 150
+- file: data/test/recon_start_rate0.2_end_rate1.0_duration_s180_s201.pcap
+  split: test
+  scenario: recon
+  seed: 201
+  class: RECON
+  malicious: true
+  hard_negative_for: null
+  host: 10.0.0.25
+  start: 83.01995032622612
+  end: 263.01995032622614
+  packets: 29036
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params:
+    start_rate: 0.2
+    end_rate: 1.0
+    host: 10.0.0.25
+    duration_s: 180
+- file: data/test/recon_start_rate0.2_end_rate1.0_duration_s180_s202.pcap
+  split: test
+  scenario: recon
+  seed: 202
+  class: RECON
+  malicious: true
+  hard_negative_for: null
+  host: 10.0.0.25
+  start: 94.45470438237038
+  end: 274.4547043823704
+  packets: 29979
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params:
+    start_rate: 0.2
+    end_rate: 1.0
+    host: 10.0.0.25
+    duration_s: 180
+- file: data/test/recon_start_rate3.0_end_rate8.0_duration_s60_s203.pcap
+  split: test
+  scenario: recon
+  seed: 203
+  class: RECON
+  malicious: true
+  hard_negative_for: null
+  host: 10.0.0.25
+  start: 98.57069742377372
+  end: 158.5706974237737
+  packets: 28544
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params:
+    start_rate: 3.0
+    end_rate: 8.0
+    host: 10.0.0.25
+    duration_s: 60
+- file: data/test/recon_start_rate3.0_end_rate8.0_duration_s60_s204.pcap
+  split: test
+  scenario: recon
+  seed: 204
+  class: RECON
+  malicious: true
+  hard_negative_for: null
+  host: 10.0.0.25
+  start: 84.00815468760418
+  end: 144.0081546876042
+  packets: 31625
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params:
+    start_rate: 3.0
+    end_rate: 8.0
+    host: 10.0.0.25
+    duration_s: 60
+- file: data/test/ddos_peak_pps200_ramp_s60_s201.pcap
+  split: test
+  scenario: ddos
+  seed: 201
+  class: DDOS
+  malicious: true
+  hard_negative_for: null
+  host: 10.0.0.80
+  start: 83.01995032622612
+  end: 173.01995032622614
+  packets: 40926
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params:
+    peak_pps: 200
+    ramp_s: 60
+    target: 10.0.0.80
+    sources: 400
+    duration_s: 90
+- file: data/test/ddos_peak_pps200_ramp_s60_s202.pcap
+  split: test
+  scenario: ddos
+  seed: 202
+  class: DDOS
+  malicious: true
+  hard_negative_for: null
+  host: 10.0.0.80
+  start: 94.45470438237038
+  end: 184.45470438237038
+  packets: 41869
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params:
+    peak_pps: 200
+    ramp_s: 60
+    target: 10.0.0.80
+    sources: 400
+    duration_s: 90
+- file: data/test/exfil_mbytes10_s201.pcap
+  split: test
+  scenario: exfil
+  seed: 201
+  class: EXFIL
+  malicious: true
+  hard_negative_for: null
+  host: 10.0.0.25
+  start: 83.01995032622612
+  end: 233.01995032622614
+  packets: 46248
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params:
+    mbytes: 10
+    host: 10.0.0.25
+    dst: 198.51.100.78
+    duration_s: 150
+    chunk_period_s: 0
+- file: data/test/exfil_mbytes10_s202.pcap
+  split: test
+  scenario: exfil
+  seed: 202
+  class: EXFIL
+  malicious: true
+  hard_negative_for: null
+  host: 10.0.0.25
+  start: 94.45470438237038
+  end: 244.45470438237038
+  packets: 47488
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params:
+    mbytes: 10
+    host: 10.0.0.25
+    dst: 198.51.100.78
+    duration_s: 150
+    chunk_period_s: 0
+- file: data/test/exfil_mbytes6_chunk_period_s20_duration_s200_s203.pcap
+  split: test
+  scenario: exfil
+  seed: 203
+  class: EXFIL
+  malicious: true
+  hard_negative_for: null
+  host: 10.0.0.25
+  start: 98.57069742377372
+  end: 298.5706974237737
+  packets: 39120
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params:
+    mbytes: 6
+    host: 10.0.0.25
+    dst: 198.51.100.79
+    duration_s: 200
+    chunk_period_s: 20
+- file: data/test/exfil_mbytes6_chunk_period_s20_duration_s200_s204.pcap
+  split: test
+  scenario: exfil
+  seed: 204
+  class: EXFIL
+  malicious: true
+  hard_negative_for: null
+  host: 10.0.0.25
+  start: 84.00815468760418
+  end: 284.0081546876042
+  packets: 40468
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params:
+    mbytes: 6
+    host: 10.0.0.25
+    dst: 198.51.100.79
+    duration_s: 200
+    chunk_period_s: 20
+- file: data/test/unknown_dns_tunnel_s201.pcap
+  split: test
+  scenario: unknown_dns_tunnel
+  seed: 201
+  class: UNKNOWN
+  malicious: true
+  hard_negative_for: null
+  host: 10.0.0.25
+  start: 83.01995032622612
+  end: 233.01995032622614
+  packets: 30097
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params:
+    host: 10.0.0.25
+    pps: 6
+    duration_s: 150
+- file: data/test/unknown_dns_tunnel_s202.pcap
+  split: test
+  scenario: unknown_dns_tunnel
+  seed: 202
+  class: UNKNOWN
+  malicious: true
+  hard_negative_for: null
+  host: 10.0.0.25
+  start: 94.45470438237038
+  end: 244.45470438237038
+  packets: 31111
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params:
+    host: 10.0.0.25
+    pps: 6
+    duration_s: 150
+- file: data/test/heartbeat_s201.pcap
+  split: test
+  scenario: heartbeat
+  seed: 201
+  class: BENIGN
+  malicious: false
+  hard_negative_for: C2
+  host: 10.0.3.13
+  start: 0
+  end: 300
+  packets: 28972
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params:
+    duration_s: 300
+- file: data/test/telemetry_new_s201.pcap
+  split: test
+  scenario: telemetry_new
+  seed: 201
+  class: BENIGN
+  malicious: false
+  hard_negative_for: C2
+  host: 10.0.1.10
+  start: 0
+  end: 300
+  packets: 29051
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params:
+    duration_s: 300
+- file: data/test/api_polling_s201.pcap
+  split: test
+  scenario: api_polling
+  seed: 201
+  class: BENIGN
+  malicious: false
+  hard_negative_for: C2
+  host: 10.0.3.13
+  start: 0
+  end: 300
+  packets: 29146
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params:
+    duration_s: 300
+- file: data/test/inventory_s201.pcap
+  split: test
+  scenario: inventory
+  seed: 201
+  class: BENIGN
+  malicious: false
+  hard_negative_for: RECON
+  host: 10.0.3.10
+  start: 83.01995032622612
+  end: 98.21995032622613
+  packets: 28947
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params:
+    duration_s: 300
+- file: data/test/app_restart_s201.pcap
+  split: test
+  scenario: app_restart
+  seed: 201
+  class: BENIGN
+  malicious: false
+  hard_negative_for: RECON
+  host: 10.0.1.10
+  start: 83.01995032622612
+  end: 86.01995032622612
+  packets: 28936
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params:
+    duration_s: 300
+- file: data/test/flash_crowd_s201.pcap
+  split: test
+  scenario: flash_crowd
+  seed: 201
+  class: BENIGN
+  malicious: false
+  hard_negative_for: DDOS
+  host: 10.0.0.80
+  start: 83.01995032622612
+  end: 143.01995032622614
+  packets: 45630
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params:
+    duration_s: 300
+- file: data/test/load_test_s201.pcap
+  split: test
+  scenario: load_test
+  seed: 201
+  class: BENIGN
+  malicious: false
+  hard_negative_for: DDOS
+  host: 10.0.0.80
+  start: 83.01995032622612
+  end: 143.01995032622614
+  packets: 36029
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params:
+    duration_s: 300
+- file: data/test/backup_s201.pcap
+  split: test
+  scenario: backup
+  seed: 201
+  class: BENIGN
+  malicious: false
+  hard_negative_for: EXFIL
+  host: 10.0.1.12
+  start: 83.01995032622612
+  end: 203.01995032622614
+  packets: 91373
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params:
+    duration_s: 300
+- file: data/test/cloud_sync_s201.pcap
+  split: test
+  scenario: cloud_sync
+  seed: 201
+  class: BENIGN
+  malicious: false
+  hard_negative_for: EXFIL
+  host: 10.0.1.13
+  start: 83.01995032622612
+  end: 203.01995032622614
+  packets: 67988
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params:
+    duration_s: 300
+- file: data/test/software_update_s201.pcap
+  split: test
+  scenario: software_update
+  seed: 201
+  class: BENIGN
+  malicious: false
+  hard_negative_for: EXFIL
+  host: 10.0.1.10
+  start: 83.01995032622612
+  end: 143.01995032622614
+  packets: 70307
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params:
+    duration_s: 300
+- file: data/demo/demo1_c2.pcap
+  split: demo
+  scenario: c2
+  seed: 42
+  class: C2
+  malicious: true
+  hard_negative_for: null
+  host: 10.0.0.25
+  start: 115.61633972276432
+  end: 265.61633972276434
+  packets: 27149
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params:
+    period_s: 10.0
+    jitter: 0.05
+    host: 10.0.0.25
+    dst: 198.51.100.42
+    duration_s: 150
+- file: data/demo/demo2_recon.pcap
+  split: demo
+  scenario: recon
+  seed: 42
+  class: RECON
+  malicious: true
+  hard_negative_for: null
+  host: 10.0.0.25
+  start: 115.61633972276432
+  end: 265.61633972276434
+  packets: 27366
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params:
+    start_rate: 0.3
+    end_rate: 3.0
+    host: 10.0.0.25
+    duration_s: 150
+- file: data/demo/demo3_ddos.pcap
+  split: demo
+  scenario: ddos
+  seed: 42
+  class: DDOS
+  malicious: true
+  hard_negative_for: null
+  host: 10.0.0.80
+  start: 115.61633972276432
+  end: 205.61633972276434
+  packets: 49614
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params:
+    peak_pps: 300
+    ramp_s: 30
+    target: 10.0.0.80
+    sources: 400
+    duration_s: 90
+- file: data/demo/demo4_exfil.pcap
+  split: demo
+  scenario: exfil
+  seed: 42
+  class: EXFIL
+  malicious: true
+  hard_negative_for: null
+  host: 10.0.0.25
+  start: 115.61633972276432
+  end: 265.61633972276434
+  packets: 52483
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params:
+    mbytes: 15
+    host: 10.0.0.25
+    dst: 198.51.100.77
+    duration_s: 150
+    chunk_period_s: 0
+- file: data/demo/demo5_unknown.pcap
+  split: demo
+  scenario: unknown_dns_tunnel
+  seed: 42
+  class: UNKNOWN
+  malicious: true
+  hard_negative_for: null
+  host: 10.0.0.25
+  start: 115.61633972276432
+  end: 265.61633972276434
+  packets: 28322
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params:
+    host: 10.0.0.25
+    pps: 6
+    duration_s: 150
+- file: data/sweeps/c2_jitter_0.0_s301.pcap
+  split: sweep
+  scenario: c2
+  seed: 301
+  class: C2
+  malicious: true
+  hard_negative_for: null
+  host: 10.0.0.25
+  start: 109.25052453565618
+  end: 259.25052453565615
+  packets: 27232
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params:
+    period_s: 10.0
+    jitter: 0.0
+    host: 10.0.0.25
+    dst: 198.51.100.42
+    duration_s: 150
+- file: data/sweeps/c2_jitter_0.0_s302.pcap
+  split: sweep
+  scenario: c2
+  seed: 302
+  class: C2
+  malicious: true
+  hard_negative_for: null
+  host: 10.0.0.25
+  start: 118.55437155572324
+  end: 268.55437155572326
+  packets: 28947
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params:
+    period_s: 10.0
+    jitter: 0.0
+    host: 10.0.0.25
+    dst: 198.51.100.42
+    duration_s: 150
+- file: data/sweeps/c2_jitter_0.1_s301.pcap
+  split: sweep
+  scenario: c2
+  seed: 301
+  class: C2
+  malicious: true
+  hard_negative_for: null
+  host: 10.0.0.25
+  start: 109.25052453565618
+  end: 259.25052453565615
+  packets: 27234
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params:
+    period_s: 10.0
+    jitter: 0.1
+    host: 10.0.0.25
+    dst: 198.51.100.42
+    duration_s: 150
+- file: data/sweeps/c2_jitter_0.1_s302.pcap
+  split: sweep
+  scenario: c2
+  seed: 302
+  class: C2
+  malicious: true
+  hard_negative_for: null
+  host: 10.0.0.25
+  start: 118.55437155572324
+  end: 268.55437155572326
+  packets: 28947
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params:
+    period_s: 10.0
+    jitter: 0.1
+    host: 10.0.0.25
+    dst: 198.51.100.42
+    duration_s: 150
+- file: data/sweeps/c2_jitter_0.2_s301.pcap
+  split: sweep
+  scenario: c2
+  seed: 301
+  class: C2
+  malicious: true
+  hard_negative_for: null
+  host: 10.0.0.25
+  start: 109.25052453565618
+  end: 259.25052453565615
+  packets: 27234
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params:
+    period_s: 10.0
+    jitter: 0.2
+    host: 10.0.0.25
+    dst: 198.51.100.42
+    duration_s: 150
+- file: data/sweeps/c2_jitter_0.2_s302.pcap
+  split: sweep
+  scenario: c2
+  seed: 302
+  class: C2
+  malicious: true
+  hard_negative_for: null
+  host: 10.0.0.25
+  start: 118.55437155572324
+  end: 268.55437155572326
+  packets: 28947
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params:
+    period_s: 10.0
+    jitter: 0.2
+    host: 10.0.0.25
+    dst: 198.51.100.42
+    duration_s: 150
+- file: data/sweeps/c2_jitter_0.3_s301.pcap
+  split: sweep
+  scenario: c2
+  seed: 301
+  class: C2
+  malicious: true
+  hard_negative_for: null
+  host: 10.0.0.25
+  start: 109.25052453565618
+  end: 259.25052453565615
+  packets: 27234
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params:
+    period_s: 10.0
+    jitter: 0.3
+    host: 10.0.0.25
+    dst: 198.51.100.42
+    duration_s: 150
+- file: data/sweeps/c2_jitter_0.3_s302.pcap
+  split: sweep
+  scenario: c2
+  seed: 302
+  class: C2
+  malicious: true
+  hard_negative_for: null
+  host: 10.0.0.25
+  start: 118.55437155572324
+  end: 268.55437155572326
+  packets: 28947
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params:
+    period_s: 10.0
+    jitter: 0.3
+    host: 10.0.0.25
+    dst: 198.51.100.42
+    duration_s: 150
+- file: data/sweeps/c2_jitter_0.5_s301.pcap
+  split: sweep
+  scenario: c2
+  seed: 301
+  class: C2
+  malicious: true
+  hard_negative_for: null
+  host: 10.0.0.25
+  start: 109.25052453565618
+  end: 259.25052453565615
+  packets: 27234
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params:
+    period_s: 10.0
+    jitter: 0.5
+    host: 10.0.0.25
+    dst: 198.51.100.42
+    duration_s: 150
+- file: data/sweeps/c2_jitter_0.5_s302.pcap
+  split: sweep
+  scenario: c2
+  seed: 302
+  class: C2
+  malicious: true
+  hard_negative_for: null
+  host: 10.0.0.25
+  start: 118.55437155572324
+  end: 268.55437155572326
+  packets: 28945
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params:
+    period_s: 10.0
+    jitter: 0.5
+    host: 10.0.0.25
+    dst: 198.51.100.42
+    duration_s: 150
+- file: data/sweeps/recon_speed_0.5_s301.pcap
+  split: sweep
+  scenario: recon
+  seed: 301
+  class: RECON
+  malicious: true
+  hard_negative_for: null
+  host: 10.0.0.25
+  start: 109.25052453565618
+  end: 229.25052453565618
+  packets: 27262
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params:
+    start_rate: 0.5
+    end_rate: 0.5
+    host: 10.0.0.25
+    duration_s: 120
+- file: data/sweeps/recon_speed_0.5_s302.pcap
+  split: sweep
+  scenario: recon
+  seed: 302
+  class: RECON
+  malicious: true
+  hard_negative_for: null
+  host: 10.0.0.25
+  start: 118.55437155572324
+  end: 238.55437155572324
+  packets: 28977
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params:
+    start_rate: 0.5
+    end_rate: 0.5
+    host: 10.0.0.25
+    duration_s: 120
+- file: data/sweeps/recon_speed_1.0_s301.pcap
+  split: sweep
+  scenario: recon
+  seed: 301
+  class: RECON
+  malicious: true
+  hard_negative_for: null
+  host: 10.0.0.25
+  start: 109.25052453565618
+  end: 229.25052453565618
+  packets: 27292
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params:
+    start_rate: 0.5
+    end_rate: 1.0
+    host: 10.0.0.25
+    duration_s: 120
+- file: data/sweeps/recon_speed_1.0_s302.pcap
+  split: sweep
+  scenario: recon
+  seed: 302
+  class: RECON
+  malicious: true
+  hard_negative_for: null
+  host: 10.0.0.25
+  start: 118.55437155572324
+  end: 238.55437155572324
+  packets: 29007
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params:
+    start_rate: 0.5
+    end_rate: 1.0
+    host: 10.0.0.25
+    duration_s: 120
+- file: data/sweeps/recon_speed_2.0_s301.pcap
+  split: sweep
+  scenario: recon
+  seed: 301
+  class: RECON
+  malicious: true
+  hard_negative_for: null
+  host: 10.0.0.25
+  start: 109.25052453565618
+  end: 229.25052453565618
+  packets: 27352
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params:
+    start_rate: 0.5
+    end_rate: 2.0
+    host: 10.0.0.25
+    duration_s: 120
+- file: data/sweeps/recon_speed_2.0_s302.pcap
+  split: sweep
+  scenario: recon
+  seed: 302
+  class: RECON
+  malicious: true
+  hard_negative_for: null
+  host: 10.0.0.25
+  start: 118.55437155572324
+  end: 238.55437155572324
+  packets: 29067
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params:
+    start_rate: 0.5
+    end_rate: 2.0
+    host: 10.0.0.25
+    duration_s: 120
+- file: data/sweeps/recon_speed_4.0_s301.pcap
+  split: sweep
+  scenario: recon
+  seed: 301
+  class: RECON
+  malicious: true
+  hard_negative_for: null
+  host: 10.0.0.25
+  start: 109.25052453565618
+  end: 229.25052453565618
+  packets: 27471
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params:
+    start_rate: 0.5
+    end_rate: 4.0
+    host: 10.0.0.25
+    duration_s: 120
+- file: data/sweeps/recon_speed_4.0_s302.pcap
+  split: sweep
+  scenario: recon
+  seed: 302
+  class: RECON
+  malicious: true
+  hard_negative_for: null
+  host: 10.0.0.25
+  start: 118.55437155572324
+  end: 238.55437155572324
+  packets: 29186
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params:
+    start_rate: 0.5
+    end_rate: 4.0
+    host: 10.0.0.25
+    duration_s: 120
+- file: data/sweeps/recon_speed_8.0_s301.pcap
+  split: sweep
+  scenario: recon
+  seed: 301
+  class: RECON
+  malicious: true
+  hard_negative_for: null
+  host: 10.0.0.25
+  start: 109.25052453565618
+  end: 229.25052453565618
+  packets: 27711
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params:
+    start_rate: 0.5
+    end_rate: 8.0
+    host: 10.0.0.25
+    duration_s: 120
+- file: data/sweeps/recon_speed_8.0_s302.pcap
+  split: sweep
+  scenario: recon
+  seed: 302
+  class: RECON
+  malicious: true
+  hard_negative_for: null
+  host: 10.0.0.25
+  start: 118.55437155572324
+  end: 238.55437155572324
+  packets: 29426
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params:
+    start_rate: 0.5
+    end_rate: 8.0
+    host: 10.0.0.25
+    duration_s: 120
+- file: data/sweeps/ddos_volume_25_s301.pcap
+  split: sweep
+  scenario: ddos
+  seed: 301
+  class: DDOS
+  malicious: true
+  hard_negative_for: null
+  host: 10.0.0.80
+  start: 109.25052453565618
+  end: 199.25052453565618
+  packets: 29076
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params:
+    peak_pps: 25
+    ramp_s: 30
+    target: 10.0.0.80
+    sources: 400
+    duration_s: 90
+- file: data/sweeps/ddos_volume_25_s302.pcap
+  split: sweep
+  scenario: ddos
+  seed: 302
+  class: DDOS
+  malicious: true
+  hard_negative_for: null
+  host: 10.0.0.80
+  start: 118.55437155572324
+  end: 208.55437155572324
+  packets: 30791
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params:
+    peak_pps: 25
+    ramp_s: 30
+    target: 10.0.0.80
+    sources: 400
+    duration_s: 90
+- file: data/sweeps/ddos_volume_50_s301.pcap
+  split: sweep
+  scenario: ddos
+  seed: 301
+  class: DDOS
+  malicious: true
+  hard_negative_for: null
+  host: 10.0.0.80
+  start: 109.25052453565618
+  end: 199.25052453565618
+  packets: 30951
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params:
+    peak_pps: 50
+    ramp_s: 30
+    target: 10.0.0.80
+    sources: 400
+    duration_s: 90
+- file: data/sweeps/ddos_volume_50_s302.pcap
+  split: sweep
+  scenario: ddos
+  seed: 302
+  class: DDOS
+  malicious: true
+  hard_negative_for: null
+  host: 10.0.0.80
+  start: 118.55437155572324
+  end: 208.55437155572324
+  packets: 32666
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params:
+    peak_pps: 50
+    ramp_s: 30
+    target: 10.0.0.80
+    sources: 400
+    duration_s: 90
+- file: data/sweeps/ddos_volume_100_s301.pcap
+  split: sweep
+  scenario: ddos
+  seed: 301
+  class: DDOS
+  malicious: true
+  hard_negative_for: null
+  host: 10.0.0.80
+  start: 109.25052453565618
+  end: 199.25052453565618
+  packets: 34700
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params:
+    peak_pps: 100
+    ramp_s: 30
+    target: 10.0.0.80
+    sources: 400
+    duration_s: 90
+- file: data/sweeps/ddos_volume_100_s302.pcap
+  split: sweep
+  scenario: ddos
+  seed: 302
+  class: DDOS
+  malicious: true
+  hard_negative_for: null
+  host: 10.0.0.80
+  start: 118.55437155572324
+  end: 208.55437155572324
+  packets: 36415
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params:
+    peak_pps: 100
+    ramp_s: 30
+    target: 10.0.0.80
+    sources: 400
+    duration_s: 90
+- file: data/sweeps/ddos_volume_200_s301.pcap
+  split: sweep
+  scenario: ddos
+  seed: 301
+  class: DDOS
+  malicious: true
+  hard_negative_for: null
+  host: 10.0.0.80
+  start: 109.25052453565618
+  end: 199.25052453565618
+  packets: 42198
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params:
+    peak_pps: 200
+    ramp_s: 30
+    target: 10.0.0.80
+    sources: 400
+    duration_s: 90
+- file: data/sweeps/ddos_volume_200_s302.pcap
+  split: sweep
+  scenario: ddos
+  seed: 302
+  class: DDOS
+  malicious: true
+  hard_negative_for: null
+  host: 10.0.0.80
+  start: 118.55437155572324
+  end: 208.55437155572324
+  packets: 43913
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params:
+    peak_pps: 200
+    ramp_s: 30
+    target: 10.0.0.80
+    sources: 400
+    duration_s: 90
+- file: data/sweeps/ddos_volume_400_s301.pcap
+  split: sweep
+  scenario: ddos
+  seed: 301
+  class: DDOS
+  malicious: true
+  hard_negative_for: null
+  host: 10.0.0.80
+  start: 109.25052453565618
+  end: 199.25052453565618
+  packets: 57195
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params:
+    peak_pps: 400
+    ramp_s: 30
+    target: 10.0.0.80
+    sources: 400
+    duration_s: 90
+- file: data/sweeps/ddos_volume_400_s302.pcap
+  split: sweep
+  scenario: ddos
+  seed: 302
+  class: DDOS
+  malicious: true
+  hard_negative_for: null
+  host: 10.0.0.80
+  start: 118.55437155572324
+  end: 208.55437155572324
+  packets: 58910
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params:
+    peak_pps: 400
+    ramp_s: 30
+    target: 10.0.0.80
+    sources: 400
+    duration_s: 90
+- file: data/sweeps/exfil_speed_1_s301.pcap
+  split: sweep
+  scenario: exfil
+  seed: 301
+  class: EXFIL
+  malicious: true
+  hard_negative_for: null
+  host: 10.0.0.25
+  start: 109.25052453565618
+  end: 259.25052453565615
+  packets: 28962
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params:
+    mbytes: 1
+    host: 10.0.0.25
+    dst: 198.51.100.77
+    duration_s: 150
+    chunk_period_s: 0
+- file: data/sweeps/exfil_speed_1_s302.pcap
+  split: sweep
+  scenario: exfil
+  seed: 302
+  class: EXFIL
+  malicious: true
+  hard_negative_for: null
+  host: 10.0.0.25
+  start: 118.55437155572324
+  end: 268.55437155572326
+  packets: 30591
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params:
+    mbytes: 1
+    host: 10.0.0.25
+    dst: 198.51.100.77
+    duration_s: 150
+    chunk_period_s: 0
+- file: data/sweeps/exfil_speed_3_s301.pcap
+  split: sweep
+  scenario: exfil
+  seed: 301
+  class: EXFIL
+  malicious: true
+  hard_negative_for: null
+  host: 10.0.0.25
+  start: 109.25052453565618
+  end: 259.25052453565615
+  packets: 32413
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params:
+    mbytes: 3
+    host: 10.0.0.25
+    dst: 198.51.100.77
+    duration_s: 150
+    chunk_period_s: 0
+- file: data/sweeps/exfil_speed_3_s302.pcap
+  split: sweep
+  scenario: exfil
+  seed: 302
+  class: EXFIL
+  malicious: true
+  hard_negative_for: null
+  host: 10.0.0.25
+  start: 118.55437155572324
+  end: 268.55437155572326
+  packets: 33879
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params:
+    mbytes: 3
+    host: 10.0.0.25
+    dst: 198.51.100.77
+    duration_s: 150
+    chunk_period_s: 0
+- file: data/sweeps/exfil_speed_6_s301.pcap
+  split: sweep
+  scenario: exfil
+  seed: 301
+  class: EXFIL
+  malicious: true
+  hard_negative_for: null
+  host: 10.0.0.25
+  start: 109.25052453565618
+  end: 259.25052453565615
+  packets: 37598
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params:
+    mbytes: 6
+    host: 10.0.0.25
+    dst: 198.51.100.77
+    duration_s: 150
+    chunk_period_s: 0
+- file: data/sweeps/exfil_speed_6_s302.pcap
+  split: sweep
+  scenario: exfil
+  seed: 302
+  class: EXFIL
+  malicious: true
+  hard_negative_for: null
+  host: 10.0.0.25
+  start: 118.55437155572324
+  end: 268.55437155572326
+  packets: 38811
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params:
+    mbytes: 6
+    host: 10.0.0.25
+    dst: 198.51.100.77
+    duration_s: 150
+    chunk_period_s: 0
+- file: data/sweeps/exfil_speed_12_s301.pcap
+  split: sweep
+  scenario: exfil
+  seed: 301
+  class: EXFIL
+  malicious: true
+  hard_negative_for: null
+  host: 10.0.0.25
+  start: 109.25052453565618
+  end: 259.25052453565615
+  packets: 47967
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params:
+    mbytes: 12
+    host: 10.0.0.25
+    dst: 198.51.100.77
+    duration_s: 150
+    chunk_period_s: 0
+- file: data/sweeps/exfil_speed_12_s302.pcap
+  split: sweep
+  scenario: exfil
+  seed: 302
+  class: EXFIL
+  malicious: true
+  hard_negative_for: null
+  host: 10.0.0.25
+  start: 118.55437155572324
+  end: 268.55437155572326
+  packets: 48677
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params:
+    mbytes: 12
+    host: 10.0.0.25
+    dst: 198.51.100.77
+    duration_s: 150
+    chunk_period_s: 0
+- file: data/sweeps/exfil_speed_24_s301.pcap
+  split: sweep
+  scenario: exfil
+  seed: 301
+  class: EXFIL
+  malicious: true
+  hard_negative_for: null
+  host: 10.0.0.25
+  start: 109.25052453565618
+  end: 259.25052453565615
+  packets: 68705
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params:
+    mbytes: 24
+    host: 10.0.0.25
+    dst: 198.51.100.77
+    duration_s: 150
+    chunk_period_s: 0
+- file: data/sweeps/exfil_speed_24_s302.pcap
+  split: sweep
+  scenario: exfil
+  seed: 302
+  class: EXFIL
+  malicious: true
+  hard_negative_for: null
+  host: 10.0.0.25
+  start: 118.55437155572324
+  end: 268.55437155572326
+  packets: 68394
+  duration_s: 300
+  traffic_direction: both directions present; processed as unpaired one-way observations
+  generator_params:
+    mbytes: 24
+    host: 10.0.0.25
+    dst: 198.51.100.77
+    duration_s: 150
+    chunk_period_s: 0
