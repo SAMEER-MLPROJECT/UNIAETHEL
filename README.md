@@ -16,34 +16,57 @@ A conventional IDS can often rely on bidirectional session state, active verific
 
 The prototype processes:
 
-```text
-one-way PCAP / packet copy
-        ↓
-5-tuple directional flows
-        ↓
-5 s rolling windows, 1 s step, per host
-        ↓
-┌─────────────────────────────────────────────┐
-│ Mahalanobis        joint geometry           │
-│ Isolation Forest   multivariate novelty     │
-│ Causal TCN         temporal deviation       │
-│ Graph + Louvain    communication structure  │
-└─────────────────────────────────────────────┘
-        ↓
-per-host calibrated evidence vector
-        ↓
-severity + agreement + persistence
-        ↓
-threat trajectory / incident state
-        ↓
-attack-vector compatibility
-        ↓
-C2 / RECON / DDOS / EXFIL / UNKNOWN
-        ↓
-explanation + hash-linked evidence
+```mermaid
+flowchart TD
+    %% Initial Data Ingestion
+    In([one-way PCAP / packet copy]) --> F1[5-tuple directional flows]
+    F1 --> W[5 s rolling windows, 1 s step, per host]
+
+    %% Analytical Engines (Parallel Processing)
+    subgraph Engines [Concurrent Analytical Engines]
+        direction LR
+        M(Mahalanobis<br/><small>joint geometry</small>)
+        IF(Isolation Forest<br/><small>multivariate novelty</small>)
+        TCN(Causal TCN<br/><small>temporal deviation</small>)
+        GL(Graph + Louvain<br/><small>communication structure</small>)
+    end
+
+    W --> Engines
+
+    %% Post-processing & State
+    Engines --> EV[per-host calibrated evidence vector]
+    EV --> SAP[severity + agreement + persistence]
+    SAP --> TT[threat trajectory / incident state]
+    TT --> AVC[attack-vector compatibility]
+
+    %% Threat Classifications
+    subgraph Vectors [Threat Classifications]
+        direction LR
+        C2[C2]
+        RECON[RECON]
+        DDOS[DDOS]
+        EXFIL[EXFIL]
+        UNK[UNKNOWN]
+    end
+
+    AVC --> Vectors
+    Vectors --> Out([explanation + hash-linked evidence])
+
+    %% Styling (Tailwind-inspired colors)
+    classDef primary fill:#2563eb,stroke:#1d4ed8,color:#fff,stroke-width:2px;
+    classDef engine fill:#475569,stroke:#334155,color:#fff,stroke-width:2px;
+    classDef vector fill:#dc2626,stroke:#b91c1c,color:#fff,stroke-width:2px;
+    classDef unk fill:#ca8a04,stroke:#a16207,color:#fff,stroke-width:2px;
+    classDef process fill:#f8fafc,stroke:#cbd5e1,color:#0f172a,stroke-width:2px;
+
+    class In,Out primary;
+    class M,IF,TCN,GL engine;
+    class C2,RECON,DDOS,EXFIL vector;
+    class UNK unk;
+    class F1,W,EV,SAP,TT,AVC process;
 ```
 
-The implementation is deliberately **not** a supervised LightGBM classifier. The final vector decision uses explicit compatibility functions with threshold and margin rejection; unknown or ambiguous behaviour remains `UNKNOWN`.
+The implementation is purposefully **not** a supervised LightGBM classifier. The final vector decision uses explicit compatibility functions with threshold and margin rejection; unknown or ambiguous behaviour remains `UNKNOWN`.
 
 ---
 
