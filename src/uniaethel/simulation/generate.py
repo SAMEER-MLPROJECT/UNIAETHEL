@@ -1,20 +1,9 @@
-"""Deterministic synthetic PCAP generation with Scapy. No traffic ever leaves the host.
 
-Every capture is a list of (timestamp, Ether/IP/...) packets written with wrpcap. Benign
-background is always present; at most one event (attack, hard negative, or unknown) is layered
-on top. Ground truth (host, interval, class) is returned and written to a sidecar JSON.
-
-Design intent: attacks are not cartoonish (C2 volume sits inside browsing range; slow recon is
-one probe every few seconds; low-and-slow exfil moves a few MB over minutes), and benign hard
-negatives deliberately resemble attacks (heartbeat vs C2, inventory vs recon, flash crowd vs
-DDoS, backup/cloud-sync vs exfil).
-"""
 from __future__ import annotations
 
 import json
 import zlib
 from pathlib import Path
-
 import numpy as np
 
 WORKSTATIONS = [f"10.0.{s}.{h}" for s in (1, 2, 3) for h in range(10, 16)]
@@ -197,7 +186,7 @@ def ev_exfil(cap, rng, p, dur):
             _tls_flow(cap, rng, t0 + k * p["chunk_period_s"], host, dst, total / n, 3000, p["chunk_period_s"] * 0.8)
     else:
         step = (end - t0) / 60
-        sp = int(rng.integers(1024, 65535))                  # one long-lived connection
+        sp = int(rng.integers(1024, 65535))                  
         for k in range(60):
             _tls_flow(cap, rng, t0 + k * step, host, dst, total / 60, 2000, step * 0.9, sport=sp)
     return {"cls": "EXFIL", "host": host, "t_start": t0, "t_end": end, "dst": dst}
@@ -208,13 +197,13 @@ def ev_unknown_dns_tunnel(cap, rng, p, dur):
     while t < end:
         burst = int(rng.integers(1, 5))
         for _ in range(burst):
-            cap.udp(t, host, DNS_SRV, 53, rng.uniform(200, 500), rng=rng)   # large DNS payloads, irregular bursts
+            cap.udp(t, host, DNS_SRV, 53, rng.uniform(200, 500), rng=rng)   
             t += rng.exponential(1 / (p["pps"] * 3))
         t += rng.exponential(1 / p["pps"])
     return {"cls": "UNKNOWN", "host": host, "t_start": t0, "t_end": end}
 
 
-# ------------------------------------------------------------------ benign hard negatives
+
 def hn_heartbeat(cap, rng, p, dur):
     host = WORKSTATIONS[int(rng.integers(0, len(WORKSTATIONS)))]; dst = _ext_ip("svc-health")
     for t in np.arange(_t0(rng), dur, 10.0):
@@ -310,7 +299,7 @@ def generate(scenario_type: str, seed: int, cfg: dict, params: dict | None = Non
         ev = EVENTS[scenario_type](cap, rng, p, dur)
         ev["type"] = scenario_type; ev["params"] = p
         truth["events"].append(ev)
-    cap.recs = sorted((r for r in cap.recs if 0.0 <= r[0] < dur), key=lambda x: x[0])   # inside the capture only
+    cap.recs = sorted((r for r in cap.recs if 0.0 <= r[0] < dur), key=lambda x: x[0])   
     truth["packets"] = len(cap.recs)
     if out_pcap:
         Path(out_pcap).parent.mkdir(parents=True, exist_ok=True)
