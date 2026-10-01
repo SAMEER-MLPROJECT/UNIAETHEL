@@ -64,10 +64,10 @@ splits:
     - {name: demo4_exfil, type: exfil, seeds: [42]}
     - {name: demo5_unknown, type: unknown_dns_tunnel, seeds: [42]}
 
-sweeps:   # robustness; seeds 301-302 per point, never used elsewhere
+sweeps:   # 
   c2_jitter: {type: c2, param: jitter, values: [0.0, 0.1, 0.2, 0.3, 0.5]}
   recon_speed: {type: recon, param: end_rate, values: [0.5, 1.0, 2.0, 4.0, 8.0]}
   ddos_volume: {type: ddos, param: peak_pps, values: [25, 50, 100, 200, 400]}
   exfil_speed: {type: exfil, param: mbytes, values: [1, 3, 6, 12, 24]}
-  packet_loss: {values: [0.0, 0.1, 0.3, 0.5]}          # applied at parse time to the 4 demo attacks
+  packet_loss: {values: [0.0, 0.1, 0.3, 0.5]}          
   observation: {values: [unpaired, egress_only, ingress_only]}
