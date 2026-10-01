@@ -14,28 +14,27 @@ UniAethel is a research prototype for detecting and interpreting cyber-threat be
 
 A conventional IDS can often rely on bidirectional session state, active verification, or payload signatures. A data-diode monitor cannot. UniAethel therefore treats every observed packet as a directional observation and builds behavioural evidence without inventing a reverse packet or a missing reply.
 
-The prototype processes:
+The Overview:
 
-flowchart TB
+graph TD
 
-    A["ONE-WAY INPUT<br/>PCAP / Packet Copy<br/><sub>Read-only • No return traffic</sub>"]
+    A["ONE-WAY INPUT<br>PCAP / Packet Copy<br>Read-only - No Return Traffic"]
+    B["DIRECTIONAL FLOW EXTRACTION<br>5-Tuple Flows<br>Source IP, Destination IP, Ports, Protocol"]
+    C["TEMPORAL WINDOWING<br>5 s Rolling Window / 1 s Step<br>Per-Host Behavioural Observations"]
 
-    B["DIRECTIONAL FLOW EXTRACTION<br/>5-Tuple Flows<br/><sub>src IP • dst IP • src port • dst port • protocol</sub>"]
+    A --> B
+    B --> C
 
-    C["TEMPORAL WINDOWING<br/>5 s Rolling Window • 1 s Step<br/><sub>Per-host behavioural observations</sub>"]
+    subgraph E["FOUR COMPLEMENTARY BEHAVIOURAL ENGINES"]
 
-    A --> B --> C
+        M["MAHALANOBIS<br>Joint Geometry<br>Output: A_M"]
 
-    subgraph ENGINES["FOUR COMPLEMENTARY BEHAVIOURAL ENGINES"]
-        direction LR
+        I["ISOLATION FOREST<br>Multivariate Novelty<br>Output: A_IF"]
 
-        M[" MAHALANOBIS<br/><b>Joint Geometry</b><br/><sub>Correlated statistical deviation</sub><br/><br/>Output → Aₘ"]
+        T["CAUSAL TCN<br>Temporal Deviation<br>Output: A_TCN"]
 
-        I[" ISOLATION FOREST<br/><b>Multivariate Novelty</b><br/><sub>Unusual feature combinations</sub><br/><br/>Output → Aᵢғ"]
+        G["GRAPH + LOUVAIN<br>Communication Structure<br>Output: A_G"]
 
-        T[" CAUSAL TCN<br/><b>Temporal Deviation</b><br/><sub>Past sequence → prediction error</sub><br/><br/>Output → Aₜᴄɴ"]
-
-        G["GRAPH + LOUVAIN<br/><b>Communication Structure</b><br/><sub>Source → destination topology</sub><br/><br/>Output → Aɢ"]
     end
 
     C --> M
@@ -43,52 +42,32 @@ flowchart TB
     C --> T
     C --> G
 
-    E["PER-HOST CALIBRATION<br/><b>Evidence Vector</b><br/><br/>Aₜ = [ Aₘ , Aᵢғ , Aₜᴄɴ , Aɢ ]<br/><sub>Each score calibrated to [0,1]</sub>"]
+    M --> D
+    I --> D
+    T --> D
+    G --> D
 
-    M --> E
-    I --> E
-    T --> E
-    G --> E
+    D["PER-HOST CALIBRATION<br>Evidence Vector<br>A_t = [A_M, A_IF, A_TCN, A_G]"]
 
-    F[" EVIDENCE FUSION<br/><b>Severity + Agreement + Persistence</b><br/><sub>Independent evidence is retained</sub>"]
+    D --> F
 
-    E --> F
-
-    H["THREAT TRAJECTORY<br/><b>Normal → Emerging → Persistent → High-Confidence</b><br/><sub>Incident state evolves over time</sub>"]
+    F["EVIDENCE FUSION<br>Severity + Agreement + Persistence"]
 
     F --> H
 
-    V[" ATTACK-VECTOR COMPATIBILITY<br/><b>Behavioural evidence matching</b><br/><sub>Threshold + margin rejection</sub>"]
+    H["THREAT TRAJECTORY<br>Normal -> Emerging -> Persistent -> High-Confidence"]
 
     H --> V
 
-    X{"CLASSIFICATION"}
+    V["ATTACK-VECTOR COMPATIBILITY<br>Threshold + Margin"]
 
-    V --> X
+    V --> X{"CLASSIFICATION"}
 
-    X -->|High-confidence match| K[" KNOWN VECTOR<br/><b>C2 • RECON • DDoS • EXFIL</b>"]
-    X -->|Insufficient / conflicting evidence| U["UNKNOWN<br/><b>Open-set rejection</b>"]
+    X -->|High-confidence match| K["KNOWN VECTOR<br>C2 / RECON / DDoS / EXFIL"]
+    X -->|Insufficient or conflicting evidence| U["UNKNOWN<br>Open-Set Rejection"]
 
-    K --> Z[" EXPLAINED INCIDENT<br/>+ HASH-LINKED EVIDENCE"]
+    K --> Z["EXPLAINED INCIDENT<br>+ HASH-LINKED EVIDENCE"]
     U --> Z
-
-    classDef input fill:#e8f1ff,stroke:#3973b8,stroke-width:2px,color:#111827;
-    classDef process fill:#f4f4f5,stroke:#71717a,stroke-width:1.5px,color:#111827;
-    classDef engine fill:#eefbf3,stroke:#3b8f5c,stroke-width:1.5px,color:#111827;
-    classDef fusion fill:#fff7e6,stroke:#c78a12,stroke-width:2px,color:#111827;
-    classDef decision fill:#f5efff,stroke:#7b57b2,stroke-width:2px,color:#111827;
-    classDef alert fill:#fff0f0,stroke:#c84b4b,stroke-width:2px,color:#111827;
-    classDef unknown fill:#f2f2f2,stroke:#666666,stroke-width:2px,color:#111827;
-
-    class A input;
-    class B,C,E process;
-    class M,I,T,G engine;
-    class F,H fusion;
-    class V,X decision;
-    class K,Z alert;
-    class U unknown;
-
-    style ENGINES fill:#fafafa,stroke:#9ca3af,stroke-width:1.5px
 
 The implementation is purposefully **not** a supervised LightGBM classifier. The final vector decision uses explicit compatibility functions with threshold and margin rejection; unknown or ambiguous behaviour remains `UNKNOWN`.
 
