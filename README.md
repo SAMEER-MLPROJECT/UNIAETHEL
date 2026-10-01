@@ -128,12 +128,13 @@ This is intentional. The system separates **anomaly detection** from **attack-ve
 ---
 
 ## Architecture evolution
+### FIRST VERSION HAD MULTIPLE IMPROVEMENTS INCLUDING IMPROVEMENTS IN THE FUSION LAYER AND STATISTICAL ENGINE ( MAHALANOBIS )
 
 The final system came from tested failures rather than from adding models for presentation value.
 
 | Stage | Architecture | Held-out detection |
 |---|---|---:|
-| **0 — failed baseline** | scalar threshold | **2/16** |
+| **0 - failed baseline** | scalar threshold | **2/16** |
 | **0b** | Isolation Forest only | **0/16** |
 | **1** | Mahalanobis + IF | **6/16** |
 | **2** | + causal TCN | **8/16** |
