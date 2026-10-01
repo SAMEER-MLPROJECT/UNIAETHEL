@@ -1,0 +1,30 @@
+=== demo2_recon: ground truth RECON on 10.0.0.25 from 116 s to 266 s ===
+processed 27366 packets / 3744 directional flows / 6600 host-windows in 1.72 s
+
+INCIDENT #0
+Host: 10.0.0.25
+Counterparty: 10.0.2.12 (21 destinations, 0 sources seen)
+Window: 130-299 s  (duration 170 s)
+
+Evidence vector (incident mean / max):
+  Mahalanobis       0.84 / 1.00
+  Isolation Forest  0.84 / 0.96
+  TCN               0.96 / 1.00
+  Graph             0.96 / 1.00
+Behavioural anomaly severity (peak): 1.00   (tau_sev 0.985; not a probability)
+Corroboration (mean): 2.4/4   peak 3/4
+Persistence (mean): 0.96
+Trajectory: Stable, peak state HIGH_CONFIDENCE
+
+Attack-vector compatibility scores (not probabilities):
+  RECON         0.335
+  C2            0.329
+  EXFIL         0.142
+  DDOS          0.098
+
+Classification: UNKNOWN / AMBIGUOUS
+Reason:
+  - best profile RECON scored 0.335 (tau_class 0.415) with margin 0.006 over C2 (delta 0.095): not enough evidence to name a known vector
+  - multidomain corroboration 2.4/4, persisted 170 s
+
+other incidents in this capture: 0 []

@@ -1,0 +1,33 @@
+=== demo3_ddos: ground truth DDOS on 10.0.0.80 from 116 s to 206 s ===
+processed 49614 packets / 25992 directional flows / 6300 host-windows in 2.33 s
+
+INCIDENT #0
+Host: 10.0.0.80
+Counterparty: 34.142.179.241 (239 destinations, 22731 sources seen)
+Window: 119-218 s  (duration 100 s)
+
+Evidence vector (incident mean / max):
+  Mahalanobis       0.99 / 1.00
+  Isolation Forest  0.91 / 0.99
+  TCN               1.00 / 1.00
+  Graph             0.92 / 1.00
+Behavioural anomaly severity (peak): 1.00   (tau_sev 0.985; not a probability)
+Corroboration (mean): 2.9/4   peak 4/4
+Persistence (mean): 0.98
+Trajectory: Stable, peak state HIGH_CONFIDENCE
+
+Attack-vector compatibility scores (not probabilities):
+  DDOS          0.535
+  C2            0.403
+  RECON         0.232
+  EXFIL         0.115
+
+Classification: DDoS-like
+Reason:
+  - many sources converging on one target (phi=0.91)
+  - packet-rate surge at the target (phi=0.91)
+  - correlated statistical deviation (phi=0.92)
+  - byte-rate surge at the target (phi=0.91)
+  - multidomain corroboration 2.9/4, persisted 100 s
+
+other incidents in this capture: 0 []

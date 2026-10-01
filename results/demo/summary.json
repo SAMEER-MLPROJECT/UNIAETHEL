@@ -1,0 +1,196 @@
+{
+ "demo1_c2": {
+  "truth": "C2",
+  "host": "10.0.0.25",
+  "t_start": 115.61633972276432,
+  "t_end": 265.61633972276434,
+  "detected": true,
+  "label": "C2",
+  "latency_s": 30.383660277235677,
+  "scores": {
+   "C2": 0.4625873096116255,
+   "RECON": 0.14482395723127717,
+   "DDOS": 0.0,
+   "EXFIL": 0.07163501871715736
+  },
+  "A_mean": {
+   "A_M": 0.19835136054421765,
+   "A_IF": 0.33394846938775513,
+   "A_TCN": 0.9999999999998955,
+   "A_G": 0.9660859553067516
+  },
+  "C_mean": 1.974025974025974,
+  "P_mean": 0.9935064935064936,
+  "trajectory": "Stable",
+  "reasons": [
+   "recurrence concentrated on a single destination (phi=1.00)",
+   "strong temporal recurrence to a previously unseen destination (phi=0.89)",
+   "sequence departs from what the temporal model predicts (phi=1.00)",
+   "communication structure changed (phi=0.97)"
+  ],
+  "counterparty": {
+   "top_destination": "198.51.100.42",
+   "distinct_destinations": 1,
+   "distinct_sources": 1,
+   "outbound_bytes": 6202.0,
+   "inbound_packets": 12
+  },
+  "other_incidents": 0,
+  "packets": 27149,
+  "processing_s": 1.7737725120000505
+ },
+ "demo2_recon": {
+  "truth": "RECON",
+  "host": "10.0.0.25",
+  "t_start": 115.61633972276432,
+  "t_end": 265.61633972276434,
+  "detected": true,
+  "label": "UNKNOWN",
+  "latency_s": 14.383660277235677,
+  "scores": {
+   "C2": 0.3293523066346535,
+   "RECON": 0.33515349182562293,
+   "DDOS": 0.09804199896411851,
+   "EXFIL": 0.14161343444142363
+  },
+  "A_mean": {
+   "A_M": 0.8352377857795736,
+   "A_IF": 0.8390615126050418,
+   "A_TCN": 0.9558037815125835,
+   "A_G": 0.9638493943789598
+  },
+  "C_mean": 2.4352941176470586,
+  "P_mean": 0.961764705882353,
+  "trajectory": "Stable",
+  "reasons": [
+   "best profile RECON scored 0.335 (tau_class 0.415) with margin 0.006 over C2 (delta 0.095): not enough evidence to name a known vector"
+  ],
+  "counterparty": {
+   "top_destination": "10.0.2.12",
+   "distinct_destinations": 21,
+   "distinct_sources": 0,
+   "outbound_bytes": 14580.0,
+   "inbound_packets": 0
+  },
+  "other_incidents": 0,
+  "packets": 27366,
+  "processing_s": 1.719269961000009
+ },
+ "demo3_ddos": {
+  "truth": "DDOS",
+  "host": "10.0.0.80",
+  "t_start": 115.61633972276432,
+  "t_end": 205.61633972276434,
+  "detected": true,
+  "label": "DDOS",
+  "latency_s": 3.383660277235677,
+  "scores": {
+   "C2": 0.40261178436111117,
+   "RECON": 0.23217470869444443,
+   "DDOS": 0.5351343559722223,
+   "EXFIL": 0.1149434602361111
+  },
+  "A_mean": {
+   "A_M": 0.9890349176779888,
+   "A_IF": 0.9057200951052613,
+   "A_TCN": 0.9999991640017858,
+   "A_G": 0.916147782198648
+  },
+  "C_mean": 2.89,
+  "P_mean": 0.98,
+  "trajectory": "Stable",
+  "reasons": [
+   "many sources converging on one target (phi=0.91)",
+   "packet-rate surge at the target (phi=0.91)",
+   "correlated statistical deviation (phi=0.92)",
+   "byte-rate surge at the target (phi=0.91)"
+  ],
+  "counterparty": {
+   "top_destination": "34.142.179.241",
+   "distinct_destinations": 239,
+   "distinct_sources": 22731,
+   "outbound_bytes": 5552448.0,
+   "inbound_packets": 22779
+  },
+  "other_incidents": 0,
+  "packets": 49614,
+  "processing_s": 2.332496264999918
+ },
+ "demo4_exfil": {
+  "truth": "EXFIL",
+  "host": "10.0.0.25",
+  "t_start": 115.61633972276432,
+  "t_end": 265.61633972276434,
+  "detected": true,
+  "label": "EXFIL",
+  "latency_s": 16.383660277235677,
+  "scores": {
+   "C2": 0.4758278080197392,
+   "RECON": 0.2378229697781414,
+   "DDOS": 0.10504188933263553,
+   "EXFIL": 0.6020496786445881
+  },
+  "A_mean": {
+   "A_M": 0.9987854282424429,
+   "A_IF": 0.8822500647878198,
+   "A_TCN": 0.9709742951762572,
+   "A_G": 0.9918482474482647
+  },
+  "C_mean": 2.938775510204082,
+  "P_mean": 0.9489795918367347,
+  "trajectory": "Stable",
+  "reasons": [
+   "sustained transfer (phi=0.96)",
+   "abnormal outbound volume (phi=0.93)",
+   "new persistent external relationship (phi=1.00)",
+   "long-duration flow (phi=0.94)"
+  ],
+  "counterparty": {
+   "top_destination": "198.51.100.77",
+   "distinct_destinations": 1,
+   "distinct_sources": 1,
+   "outbound_bytes": 13836826.0,
+   "inbound_packets": 55
+  },
+  "other_incidents": 0,
+  "packets": 52483,
+  "processing_s": 2.1103910929999756
+ },
+ "demo5_unknown": {
+  "truth": "UNKNOWN",
+  "host": "10.0.0.25",
+  "t_start": 115.61633972276432,
+  "t_end": 265.61633972276434,
+  "detected": true,
+  "label": "UNKNOWN",
+  "latency_s": 11.383660277235677,
+  "scores": {
+   "C2": 0.21018668094797704,
+   "RECON": 0.1375502341421881,
+   "DDOS": 0.05991379310344828,
+   "EXFIL": 0.11349041726172128
+  },
+  "A_mean": {
+   "A_M": 0.9997728332388879,
+   "A_IF": 0.849553119868637,
+   "A_TCN": 0.8683023399014778,
+   "A_G": 0.9918056066693899
+  },
+  "C_mean": 2.0,
+  "P_mean": 0.7988505747126438,
+  "trajectory": "Stable",
+  "reasons": [
+   "best profile C2 scored 0.210 (tau_class 0.415) with margin 0.073 over RECON (delta 0.095): not enough evidence to name a known vector"
+  ],
+  "counterparty": {
+   "top_destination": "10.0.0.53",
+   "distinct_destinations": 1,
+   "distinct_sources": 0,
+   "outbound_bytes": 172954.0,
+   "inbound_packets": 0
+  },
+  "other_incidents": 0,
+  "packets": 28322,
+  "processing_s": 1.5868653969999968
+ }
+}

@@ -1,0 +1,33 @@
+=== demo4_exfil: ground truth EXFIL on 10.0.0.25 from 116 s to 266 s ===
+processed 52483 packets / 3499 directional flows / 6600 host-windows in 2.11 s
+
+INCIDENT #0
+Host: 10.0.0.25
+Counterparty: 198.51.100.77 (1 destinations, 1 sources seen)
+Window: 132-278 s  (duration 147 s)
+
+Evidence vector (incident mean / max):
+  Mahalanobis       1.00 / 1.00
+  Isolation Forest  0.88 / 0.91
+  TCN               0.97 / 1.00
+  Graph             0.99 / 0.99
+Behavioural anomaly severity (peak): 0.99   (tau_sev 0.985; not a probability)
+Corroboration (mean): 2.9/4   peak 3/4
+Persistence (mean): 0.95
+Trajectory: Stable, peak state HIGH_CONFIDENCE
+
+Attack-vector compatibility scores (not probabilities):
+  EXFIL         0.602
+  C2            0.476
+  RECON         0.238
+  DDOS          0.105
+
+Classification: Exfiltration-like
+Reason:
+  - sustained transfer (phi=0.96)
+  - abnormal outbound volume (phi=0.93)
+  - new persistent external relationship (phi=1.00)
+  - long-duration flow (phi=0.94)
+  - multidomain corroboration 2.9/4, persisted 147 s
+
+other incidents in this capture: 0 []

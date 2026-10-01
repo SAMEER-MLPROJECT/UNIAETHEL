@@ -1,0 +1,56 @@
+=== demo5_unknown: ground truth UNKNOWN on 10.0.0.25 from 116 s to 266 s ===
+processed 28322 packets / 4691 directional flows / 6600 host-windows in 1.59 s
+
+INCIDENT #0
+Host: 10.0.0.25
+Counterparty: 10.0.0.53 (1 destinations, 0 sources seen)
+Window: 127-184 s  (duration 58 s)
+
+Evidence vector (incident mean / max):
+  Mahalanobis       1.00 / 1.00
+  Isolation Forest  0.85 / 0.89
+  TCN               0.87 / 0.94
+  Graph             0.99 / 0.99
+Behavioural anomaly severity (peak): 0.99   (tau_sev 0.985; not a probability)
+Corroboration (mean): 2.0/4   peak 2/4
+Persistence (mean): 0.80
+Trajectory: Stable, peak state HIGH_CONFIDENCE
+
+Attack-vector compatibility scores (not probabilities):
+  C2            0.210
+  RECON         0.138
+  EXFIL         0.113
+  DDOS          0.060
+
+Classification: UNKNOWN / AMBIGUOUS
+Reason:
+  - best profile C2 scored 0.210 (tau_class 0.415) with margin 0.073 over RECON (delta 0.095): not enough evidence to name a known vector
+  - multidomain corroboration 2.0/4, persisted 58 s
+
+INCIDENT #1
+Host: 10.0.0.25
+Counterparty: 10.0.0.53 (1 destinations, 0 sources seen)
+Window: 192-268 s  (duration 77 s)
+
+Evidence vector (incident mean / max):
+  Mahalanobis       1.00 / 1.00
+  Isolation Forest  0.85 / 0.89
+  TCN               0.84 / 0.90
+  Graph             0.99 / 0.99
+Behavioural anomaly severity (peak): 0.99   (tau_sev 0.985; not a probability)
+Corroboration (mean): 2.0/4   peak 2/4
+Persistence (mean): 0.61
+Trajectory: Stable, peak state HIGH_CONFIDENCE
+
+Attack-vector compatibility scores (not probabilities):
+  C2            0.169
+  RECON         0.105
+  EXFIL         0.089
+  DDOS          0.046
+
+Classification: UNKNOWN / AMBIGUOUS
+Reason:
+  - best profile C2 scored 0.169 (tau_class 0.415) with margin 0.064 over RECON (delta 0.095): not enough evidence to name a known vector
+  - multidomain corroboration 2.0/4, persisted 77 s
+
+other incidents in this capture: 0 []

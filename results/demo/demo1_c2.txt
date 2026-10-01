@@ -1,0 +1,33 @@
+=== demo1_c2: ground truth C2 on 10.0.0.25 from 116 s to 266 s ===
+processed 27149 packets / 3527 directional flows / 6600 host-windows in 1.77 s
+
+INCIDENT #0
+Host: 10.0.0.25
+Counterparty: 198.51.100.42 (1 destinations, 1 sources seen)
+Window: 146-299 s  (duration 154 s)
+
+Evidence vector (incident mean / max):
+  Mahalanobis       0.20 / 0.55
+  Isolation Forest  0.33 / 0.47
+  TCN               1.00 / 1.00
+  Graph             0.97 / 0.99
+Behavioural anomaly severity (peak): 1.00   (tau_sev 0.985; not a probability)
+Corroboration (mean): 2.0/4   peak 2/4
+Persistence (mean): 0.99
+Trajectory: Stable, peak state HIGH_CONFIDENCE
+
+Attack-vector compatibility scores (not probabilities):
+  C2            0.463
+  RECON         0.145
+  EXFIL         0.072
+  DDOS          0.000
+
+Classification: C2-like beaconing
+Reason:
+  - recurrence concentrated on a single destination (phi=1.00)
+  - strong temporal recurrence to a previously unseen destination (phi=0.89)
+  - sequence departs from what the temporal model predicts (phi=1.00)
+  - communication structure changed (phi=0.97)
+  - multidomain corroboration 2.0/4, persisted 154 s
+
+other incidents in this capture: 0 []
