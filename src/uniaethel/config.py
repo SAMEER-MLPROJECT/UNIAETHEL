@@ -1,4 +1,4 @@
-"""Configuration loading, hashing and deterministic seeding."""
+
 from __future__ import annotations
 
 import hashlib
@@ -7,15 +7,12 @@ import os
 import random
 from pathlib import Path
 from typing import Any
-
 import numpy as np
 import yaml
 
 ROOT = Path(__file__).resolve().parents[2]
 
-
 def load_config(path: str | os.PathLike = "configs/default.yaml") -> dict[str, Any]:
-    """Load default.yaml and merge model.yaml and scenarios.yaml from the same folder."""
     p = Path(path)
     if not p.is_absolute():
         p = ROOT / p
@@ -29,7 +26,6 @@ def load_config(path: str | os.PathLike = "configs/default.yaml") -> dict[str, A
 
 
 def config_hash(cfg: dict[str, Any]) -> str:
-    """Stable SHA-256 over the configuration (paths excluded, they are machine-specific)."""
     c = {k: v for k, v in cfg.items() if k != "paths"}
     return hashlib.sha256(json.dumps(c, sort_keys=True, default=str).encode()).hexdigest()
 
@@ -38,7 +34,6 @@ def seed_everything(seed: int) -> None:
     random.seed(seed)
     np.random.seed(seed)
     os.environ["PYTHONHASHSEED"] = str(seed)
-
 
 import ipaddress as _ip
 
