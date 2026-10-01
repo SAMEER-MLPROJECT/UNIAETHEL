@@ -11,13 +11,12 @@ def _corr(n, rng):
 def test_ledoit_wolf_handles_singular_covariance():
     rng = np.random.default_rng(0)
     X = _corr(500, rng)
-    X = np.c_[X, X[:, 0]]                      # exact duplicate column -> singular sample covariance
+    X = np.c_[X, X[:, 0]]                      
     m = MahalanobisEngine(list("abcd")).fit(X)
     assert np.all(np.isfinite(m.raw(X))) and m.shrinkage_ > 0
 
 
 def test_detects_broken_correlation_with_normal_marginals():
-    """x0 and x1 each within 1 sd, but x1 = -x0 violates their learned correlation (H1)."""
     rng = np.random.default_rng(1)
     X = _corr(3000, rng)
     m = MahalanobisEngine(list("abc")).fit(X); m.calibrate(_corr(3000, rng))
