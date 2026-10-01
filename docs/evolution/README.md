@@ -1,6 +1,7 @@
 # Architecture evolution
 
 UniAethel was not designed as a four-engine system in one step. The final architecture is the result of a sequence of deliberately tested hypotheses. The stages below are reconstructed from the frozen ablation results, implementation plan, and current source tree.
+## Version 1 the failed version has been attached there alongside the drawbacks and improvements
 
 > **Important:** these documents describe the tested development path; they are not presented as a fabricated chronological Git history. The earliest stages are represented by their experimental baselines in `results/ablation.json`.
 
