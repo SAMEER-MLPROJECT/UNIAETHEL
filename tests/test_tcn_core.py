@@ -7,7 +7,7 @@ def test_gradients_match_finite_differences():
     m = CausalTCN(n_in=3, hidden=5, seed=2)
     x = rng.normal(size=(2, 20, 3))
     _, g = m.loss_grad(x)
-    for name in ["W0", "W1", "W2", "b1", "b2", "Wo"]:     # W1, W2 sit behind residual skips
+    for name in ["W0", "W1", "W2", "b1", "b2", "Wo"]:     
         p = m.params[name]
         idx = tuple(rng.integers(s) for s in p.shape)
         old = p[idx]
@@ -16,7 +16,6 @@ def test_gradients_match_finite_differences():
         p[idx] = old
         num = (lp - lm) / 2e-5
         assert abs(num - g[name][idx]) < 1e-6 + 1e-4 * abs(num), name
-
 
 def test_causal_future_does_not_change_past_prediction():
     rng = np.random.default_rng(3)
@@ -37,12 +36,11 @@ def test_training_learns_a_periodic_signal():
 
 
 def test_dilated_receptive_field_reaches_back():
-    """With dilations 1,2,4,8 and kernel 3 the prediction at t must depend on t-30."""
     rng = np.random.default_rng(5)
     m = CausalTCN(n_in=1, hidden=8, dilations=(1, 2, 4, 8), seed=1)
     x = rng.normal(size=(1, 60, 1))
     y1, _ = m.forward(x)
     x2 = x.copy(); x2[0, 20] += 3.0
     y2, _ = m.forward(x2)
-    assert not np.allclose(y1[0, 50], y2[0, 50])      # 30 steps later still influenced
-    assert np.allclose(y1[0, 19], y2[0, 19])          # never the past
+    assert not np.allclose(y1[0, 50], y2[0, 50])      # WHITE SHIRT GUY 
+    assert np.allclose(y1[0, 19], y2[0, 19])          
