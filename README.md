@@ -16,25 +16,25 @@ A conventional IDS can often rely on bidirectional session state, active verific
 
 The Overview:
 
-graph TD
+The Overview:
 
-    A["ONE-WAY INPUT<br>PCAP / Packet Copy<br>Read-only - No Return Traffic"]
-    B["DIRECTIONAL FLOW EXTRACTION<br>5-Tuple Flows<br>Source IP, Destination IP, Ports, Protocol"]
-    C["TEMPORAL WINDOWING<br>5 s Rolling Window / 1 s Step<br>Per-Host Behavioural Observations"]
+```mermaid
+flowchart TB
+
+    A["ONE-WAY INPUT: PCAP / PACKET COPY"]
+    B["DIRECTIONAL FLOW EXTRACTION: 5-TUPLE FLOWS"]
+    C["TEMPORAL WINDOWING: 5 s WINDOWS / 1 s STEP / PER HOST"]
 
     A --> B
     B --> C
 
-    subgraph E["FOUR COMPLEMENTARY BEHAVIOURAL ENGINES"]
+    subgraph ENGINES["FOUR COMPLEMENTARY BEHAVIOURAL ENGINES"]
+        direction LR
 
-        M["MAHALANOBIS<br>Joint Geometry<br>Output: A_M"]
-
-        I["ISOLATION FOREST<br>Multivariate Novelty<br>Output: A_IF"]
-
-        T["CAUSAL TCN<br>Temporal Deviation<br>Output: A_TCN"]
-
-        G["GRAPH + LOUVAIN<br>Communication Structure<br>Output: A_G"]
-
+        M["MAHALANOBIS<br/>JOINT GEOMETRY<br/>Output: A_M"]
+        I["ISOLATION FOREST<br/>MULTIVARIATE NOVELTY<br/>Output: A_IF"]
+        T["CAUSAL TCN<br/>TEMPORAL DEVIATION<br/>Output: A_TCN"]
+        G["GRAPH + LOUVAIN<br/>COMMUNICATION STRUCTURE<br/>Output: A_G"]
     end
 
     C --> M
@@ -47,27 +47,38 @@ graph TD
     T --> D
     G --> D
 
-    D["PER-HOST CALIBRATION<br>Evidence Vector<br>A_t = [A_M, A_IF, A_TCN, A_G]"]
+    D["PER-HOST CALIBRATION<br/>EVIDENCE VECTOR<br/>A_t = [A_M, A_IF, A_TCN, A_G]"]
 
     D --> F
-
-    F["EVIDENCE FUSION<br>Severity + Agreement + Persistence"]
+    F["EVIDENCE FUSION<br/>SEVERITY + AGREEMENT + PERSISTENCE"]
 
     F --> H
-
-    H["THREAT TRAJECTORY<br>Normal -> Emerging -> Persistent -> High-Confidence"]
+    H["THREAT TRAJECTORY<br/>NORMAL → EMERGING → PERSISTENT → HIGH-CONFIDENCE"]
 
     H --> V
-
-    V["ATTACK-VECTOR COMPATIBILITY<br>Threshold + Margin"]
+    V["ATTACK-VECTOR COMPATIBILITY<br/>THRESHOLD + MARGIN"]
 
     V --> X{"CLASSIFICATION"}
 
-    X -->|High-confidence match| K["KNOWN VECTOR<br>C2 / RECON / DDoS / EXFIL"]
-    X -->|Insufficient or conflicting evidence| U["UNKNOWN<br>Open-Set Rejection"]
+    X -->|High-confidence match| K["KNOWN VECTOR<br/>C2 / RECON / DDOS / EXFIL"]
+    X -->|Insufficient or conflicting evidence| U["UNKNOWN<br/>OPEN-SET REJECTION"]
 
-    K --> Z["EXPLAINED INCIDENT<br>+ HASH-LINKED EVIDENCE"]
+    K --> Z["EXPLAINED INCIDENT<br/>+ HASH-LINKED EVIDENCE"]
     U --> Z
+
+    classDef input fill:#e8f1ff,stroke:#3973b8,stroke-width:2px,color:#111;
+    classDef engine fill:#eefbf3,stroke:#3b8f5c,stroke-width:1.5px,color:#111;
+    classDef process fill:#f5f5f5,stroke:#777,stroke-width:1.5px,color:#111;
+    classDef fusion fill:#fff6df,stroke:#c58a16,stroke-width:2px,color:#111;
+    classDef decision fill:#f3edff,stroke:#7652a8,stroke-width:2px,color:#111;
+    classDef output fill:#fff0f0,stroke:#c44,stroke-width:2px,color:#111;
+
+    class A input;
+    class B,C,D process;
+    class M,I,T,G engine;
+    class F,H fusion;
+    class V,X decision;
+    class K,U,Z output;
 
 The implementation is purposefully **not** a supervised LightGBM classifier. The final vector decision uses explicit compatibility functions with threshold and margin rejection; unknown or ambiguous behaviour remains `UNKNOWN`.
 
