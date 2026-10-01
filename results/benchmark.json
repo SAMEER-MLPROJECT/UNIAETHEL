@@ -1,0 +1,67 @@
+{
+ "hardware": {
+  "cpu": "x86_64",
+  "cores": 1,
+  "ram_gb": 4.2
+ },
+ "os": "Linux-6.18.44-fc-v50-x86_64-with-glibc2.39",
+ "python": "3.12.3",
+ "versions": {
+  "numpy": "2.4.4",
+  "pandas": "3.0.2",
+  "scikit-learn": "1.8.0",
+  "networkx": "3.6.1"
+ },
+ "mode": "batch replay of 300 s captures, single process, parse+flows+windows+4 engines+fusion+classification",
+ "captures": 17,
+ "total_packets": 706546,
+ "throughput_pps": 22010.706759590958,
+ "throughput_flows_per_s": 4402.103968863003,
+ "throughput_mbps": 161.6816910130162,
+ "capture_latency_s": {
+  "p50": 1.8452906830000302,
+  "p95": 2.3760045539999735,
+  "p99": 2.7727726307999
+ },
+ "per_1s_step_ms": {
+  "p50": 6.150968943333434,
+  "p95": 7.920015179999911,
+  "p99": 9.242575435999667
+ },
+ "realtime_factor_min": 104.4581102347525,
+ "cpu_utilisation": 0.9976214162949252,
+ "peak_rss_mb": 548.8046875,
+ "dropped_packets": 0,
+ "replay_rates": [
+  {
+   "file": "ddos_volume_100_s301.pcap",
+   "input_pps": 115.66666666666667,
+   "pps": 19657.424812042667,
+   "realtime_factor": 169.948917683366
+  },
+  {
+   "file": "ddos_volume_200_s301.pcap",
+   "input_pps": 140.66,
+   "pps": 22774.091932020754,
+   "realtime_factor": 161.90880088170593
+  },
+  {
+   "file": "ddos_volume_25_s301.pcap",
+   "input_pps": 96.92,
+   "pps": 18156.49245325528,
+   "realtime_factor": 187.33483752842838
+  },
+  {
+   "file": "ddos_volume_400_s301.pcap",
+   "input_pps": 190.65,
+   "pps": 25766.750397695076,
+   "realtime_factor": 135.15211328452702
+  },
+  {
+   "file": "ddos_volume_50_s301.pcap",
+   "input_pps": 103.17,
+   "pps": 20007.105518579676,
+   "realtime_factor": 193.92367469787416
+  }
+ ]
+}

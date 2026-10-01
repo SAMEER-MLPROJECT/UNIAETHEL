@@ -1,0 +1,391 @@
+{
+ "attack_vector": {
+  "delta_margin": 0.09475902401898786,
+  "tau_class": 0.4151878901123551,
+  "val_argmax_accuracy": 1.0,
+  "val_known_incidents": 8
+ },
+ "config_hash": "d5767031c385f50cbaf6de4cda079218735662dad32f56ad1f32c1bfa58345ab",
+ "decision": {
+  "A_IF_only": {
+   "engines": [
+    "IF"
+   ],
+   "tau_sev": 0.9968377223398316,
+   "validation": {
+    "attack_related_incidents": 0,
+    "detected": 0,
+    "episodes": 8,
+    "f1": 0.0,
+    "false_incidents": 0,
+    "fp_per_hour": 0.0,
+    "latency_median_s": NaN,
+    "latency_p95_s": NaN,
+    "meets_budget": true,
+    "precision": NaN,
+    "recall": 0.0,
+    "tp_incidents": 0
+   },
+   "weights": [
+    1.0
+   ]
+  },
+  "B_M_IF": {
+   "engines": [
+    "M",
+    "IF"
+   ],
+   "tau_sev": 0.9961688131504427,
+   "validation": {
+    "attack_related_incidents": 0,
+    "detected": 4,
+    "episodes": 8,
+    "f1": 0.6666666666666666,
+    "false_incidents": 0,
+    "fp_per_hour": 0.0,
+    "latency_median_s": 2.559997463779318,
+    "latency_p95_s": 8.893386725993455,
+    "meets_budget": true,
+    "precision": 1.0,
+    "recall": 0.5,
+    "tp_incidents": 12
+   },
+   "weights": [
+    0.5,
+    0.5
+   ]
+  },
+  "C_M_IF_TCN": {
+   "engines": [
+    "M",
+    "IF",
+    "TCN"
+   ],
+   "tau_sev": 0.9968377223398316,
+   "validation": {
+    "attack_related_incidents": 0,
+    "detected": 6,
+    "episodes": 8,
+    "f1": 0.8571428571428571,
+    "false_incidents": 0,
+    "fp_per_hour": 0.0,
+    "latency_median_s": 3.1199949275586363,
+    "latency_p95_s": 29.449458279118772,
+    "meets_budget": true,
+    "precision": 1.0,
+    "recall": 0.75,
+    "tp_incidents": 6
+   },
+   "weights": [
+    0.3333333333333333,
+    0.3333333333333333,
+    0.3333333333333333
+   ]
+  },
+  "D_all_four_engines": {
+   "engines": [
+    "M",
+    "IF",
+    "TCN",
+    "G"
+   ],
+   "tau_sev": 0.9961688131504427,
+   "validation": {
+    "attack_related_incidents": 0,
+    "detected": 6,
+    "episodes": 8,
+    "f1": 0.8571428571428571,
+    "false_incidents": 0,
+    "fp_per_hour": 0.0,
+    "latency_median_s": 3.1199949275586363,
+    "latency_p95_s": 29.449458279118772,
+    "meets_budget": true,
+    "precision": 1.0,
+    "recall": 0.75,
+    "tp_incidents": 6
+   },
+   "weights": [
+    0.25,
+    0.25,
+    0.25,
+    0.25
+   ]
+  },
+  "E_plus_corroboration": {
+   "engines": [
+    "M",
+    "IF",
+    "TCN",
+    "G"
+   ],
+   "tau_sev": 0.9961688131504427,
+   "validation": {
+    "attack_related_incidents": 0,
+    "detected": 6,
+    "episodes": 8,
+    "f1": 0.8571428571428571,
+    "false_incidents": 0,
+    "fp_per_hour": 0.0,
+    "latency_median_s": 3.1199949275586363,
+    "latency_p95_s": 29.449458279118772,
+    "meets_budget": true,
+    "precision": 1.0,
+    "recall": 0.75,
+    "tp_incidents": 6
+   },
+   "weights": [
+    0.25,
+    0.25,
+    0.25,
+    0.25
+   ]
+  },
+  "F_plus_persistence": {
+   "engines": [
+    "M",
+    "IF",
+    "TCN",
+    "G"
+   ],
+   "tau_sev": 0.9853220073237793,
+   "validation": {
+    "attack_related_incidents": 0,
+    "detected": 8,
+    "episodes": 8,
+    "f1": 0.9411764705882353,
+    "false_incidents": 1,
+    "fp_per_hour": 0.8571428571428571,
+    "latency_median_s": 9.619994927558636,
+    "latency_p95_s": 31.40552983224409,
+    "meets_budget": true,
+    "precision": 0.8888888888888888,
+    "recall": 1.0,
+    "tp_incidents": 8
+   },
+   "weights": [
+    0.25,
+    0.25,
+    0.25,
+    0.25
+   ]
+  },
+  "G_arithmetic_severity": {
+   "engines": [
+    "M",
+    "IF",
+    "TCN",
+    "G"
+   ],
+   "tau_sev": 0.9784556530996812,
+   "validation": {
+    "attack_related_incidents": 0,
+    "detected": 4,
+    "episodes": 8,
+    "f1": 0.625,
+    "false_incidents": 1,
+    "fp_per_hour": 0.8571428571428571,
+    "latency_median_s": 5.83963716193206,
+    "latency_p95_s": 10.743386725993455,
+    "meets_budget": true,
+    "precision": 0.8333333333333334,
+    "recall": 0.5,
+    "tp_incidents": 5
+   },
+   "weights": [
+    0.25,
+    0.25,
+    0.25,
+    0.25
+   ]
+  },
+  "G_plus_trajectory": {
+   "engines": [
+    "M",
+    "IF",
+    "TCN",
+    "G"
+   ],
+   "tau_sev": 0.9853220073237793,
+   "validation": {
+    "attack_related_incidents": 0,
+    "detected": 8,
+    "episodes": 8,
+    "f1": 0.9411764705882353,
+    "false_incidents": 1,
+    "fp_per_hour": 0.8571428571428571,
+    "latency_median_s": 9.619994927558636,
+    "latency_p95_s": 31.40552983224409,
+    "meets_budget": true,
+    "precision": 0.8888888888888888,
+    "recall": 1.0,
+    "tp_incidents": 8
+   },
+   "weights": [
+    0.25,
+    0.25,
+    0.25,
+    0.25
+   ]
+  },
+  "G_without_Graph": {
+   "engines": [
+    "M",
+    "IF",
+    "TCN"
+   ],
+   "tau_sev": 0.9953584111663872,
+   "validation": {
+    "attack_related_incidents": 0,
+    "detected": 4,
+    "episodes": 8,
+    "f1": 0.6666666666666666,
+    "false_incidents": 0,
+    "fp_per_hour": 0.0,
+    "latency_median_s": 5.619994927558636,
+    "latency_p95_s": 6.4933867259934575,
+    "meets_budget": true,
+    "precision": 1.0,
+    "recall": 0.5,
+    "tp_incidents": 4
+   },
+   "weights": [
+    0.3333333333333333,
+    0.3333333333333333,
+    0.3333333333333333
+   ]
+  },
+  "G_without_IF": {
+   "engines": [
+    "M",
+    "TCN",
+    "G"
+   ],
+   "tau_sev": 0.9943765867480965,
+   "validation": {
+    "attack_related_incidents": 0,
+    "detected": 8,
+    "episodes": 8,
+    "f1": 1.0,
+    "false_incidents": 0,
+    "fp_per_hour": 0.0,
+    "latency_median_s": 9.619994927558636,
+    "latency_p95_s": 31.40552983224409,
+    "meets_budget": true,
+    "precision": 1.0,
+    "recall": 1.0,
+    "tp_incidents": 8
+   },
+   "weights": [
+    0.3333333333333333,
+    0.3333333333333333,
+    0.3333333333333333
+   ]
+  },
+  "G_without_Mahalanobis": {
+   "engines": [
+    "IF",
+    "TCN",
+    "G"
+   ],
+   "tau_sev": 0.99,
+   "validation": {
+    "attack_related_incidents": 0,
+    "detected": 6,
+    "episodes": 8,
+    "f1": 0.8571428571428571,
+    "false_incidents": 0,
+    "fp_per_hour": 0.0,
+    "latency_median_s": 21.83963716193206,
+    "latency_p95_s": 31.449458279118772,
+    "meets_budget": true,
+    "precision": 1.0,
+    "recall": 0.75,
+    "tp_incidents": 6
+   },
+   "weights": [
+    0.3333333333333333,
+    0.3333333333333333,
+    0.3333333333333333
+   ]
+  },
+  "G_without_TCN": {
+   "engines": [
+    "M",
+    "IF",
+    "G"
+   ],
+   "tau_sev": 0.9878847234137141,
+   "validation": {
+    "attack_related_incidents": 0,
+    "detected": 6,
+    "episodes": 8,
+    "f1": 0.7999999999999999,
+    "false_incidents": 1,
+    "fp_per_hour": 0.8571428571428571,
+    "latency_median_s": 4.83963716193206,
+    "latency_p95_s": 23.449458279118772,
+    "meets_budget": true,
+    "precision": 0.8571428571428571,
+    "recall": 0.75,
+    "tp_incidents": 6
+   },
+   "weights": [
+    0.3333333333333333,
+    0.3333333333333333,
+    0.3333333333333333
+   ]
+  },
+  "G_without_corroboration": {
+   "engines": [
+    "M",
+    "IF",
+    "TCN",
+    "G"
+   ],
+   "tau_sev": 0.9853220073237793,
+   "validation": {
+    "attack_related_incidents": 0,
+    "detected": 8,
+    "episodes": 8,
+    "f1": 0.9411764705882353,
+    "false_incidents": 1,
+    "fp_per_hour": 0.8571428571428571,
+    "latency_median_s": 9.619994927558636,
+    "latency_p95_s": 31.40552983224409,
+    "meets_budget": true,
+    "precision": 0.8888888888888888,
+    "recall": 1.0,
+    "tp_incidents": 8
+   },
+   "weights": [
+    0.25,
+    0.25,
+    0.25,
+    0.25
+   ]
+  },
+  "STAT_univariate_threshold": {
+   "engines": [
+    "STAT"
+   ],
+   "tau_sev": 0.999,
+   "validation": {
+    "attack_related_incidents": 0,
+    "detected": 2,
+    "episodes": 8,
+    "f1": 0.4,
+    "false_incidents": 0,
+    "fp_per_hour": 0.0,
+    "latency_median_s": 2.3396371619320604,
+    "latency_p95_s": 2.537315172868142,
+    "meets_budget": true,
+    "precision": 1.0,
+    "recall": 0.25,
+    "tp_incidents": 2
+   },
+   "weights": [
+    1.0
+   ]
+  }
+ }
+}

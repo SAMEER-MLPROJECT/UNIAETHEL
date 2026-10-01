@@ -1,0 +1,220 @@
+{
+ "c2_jitter": {
+  "param": "jitter",
+  "points": {
+   "0.0": {
+    "detected": 2,
+    "episodes": 2,
+    "correct_label": 2,
+    "labelled_incidents": 2,
+    "false_alerts": 1,
+    "latency_median_s": 31.59755195431029
+   },
+   "0.1": {
+    "detected": 2,
+    "episodes": 2,
+    "correct_label": 2,
+    "labelled_incidents": 2,
+    "false_alerts": 1,
+    "latency_median_s": 32.59755195431029
+   },
+   "0.2": {
+    "detected": 2,
+    "episodes": 2,
+    "correct_label": 2,
+    "labelled_incidents": 2,
+    "false_alerts": 1,
+    "latency_median_s": 33.09755195431029
+   },
+   "0.3": {
+    "detected": 2,
+    "episodes": 2,
+    "correct_label": 2,
+    "labelled_incidents": 2,
+    "false_alerts": 1,
+    "latency_median_s": 34.09755195431029
+   },
+   "0.5": {
+    "detected": 2,
+    "episodes": 2,
+    "correct_label": 2,
+    "labelled_incidents": 2,
+    "false_alerts": 1,
+    "latency_median_s": 35.59755195431029
+   }
+  }
+ },
+ "recon_speed": {
+  "param": "end_rate",
+  "points": {
+   "0.5": {
+    "detected": 2,
+    "episodes": 2,
+    "correct_label": 0,
+    "labelled_incidents": 2,
+    "false_alerts": 1,
+    "latency_median_s": 9.59755195431029
+   },
+   "1.0": {
+    "detected": 2,
+    "episodes": 2,
+    "correct_label": 0,
+    "labelled_incidents": 2,
+    "false_alerts": 1,
+    "latency_median_s": 9.09755195431029
+   },
+   "2.0": {
+    "detected": 2,
+    "episodes": 2,
+    "correct_label": 0,
+    "labelled_incidents": 2,
+    "false_alerts": 1,
+    "latency_median_s": 8.59755195431029
+   },
+   "4.0": {
+    "detected": 2,
+    "episodes": 2,
+    "correct_label": 0,
+    "labelled_incidents": 2,
+    "false_alerts": 1,
+    "latency_median_s": 8.59755195431029
+   },
+   "8.0": {
+    "detected": 2,
+    "episodes": 2,
+    "correct_label": 0,
+    "labelled_incidents": 2,
+    "false_alerts": 1,
+    "latency_median_s": 7.0975519543102905
+   }
+  }
+ },
+ "ddos_volume": {
+  "param": "peak_pps",
+  "points": {
+   "25": {
+    "detected": 2,
+    "episodes": 2,
+    "correct_label": 0,
+    "labelled_incidents": 2,
+    "false_alerts": 1,
+    "latency_median_s": 10.09755195431029
+   },
+   "50": {
+    "detected": 2,
+    "episodes": 2,
+    "correct_label": 0,
+    "labelled_incidents": 2,
+    "false_alerts": 1,
+    "latency_median_s": 6.5975519543102905
+   },
+   "100": {
+    "detected": 2,
+    "episodes": 2,
+    "correct_label": 2,
+    "labelled_incidents": 2,
+    "false_alerts": 1,
+    "latency_median_s": 5.0975519543102905
+   },
+   "200": {
+    "detected": 2,
+    "episodes": 2,
+    "correct_label": 2,
+    "labelled_incidents": 2,
+    "false_alerts": 1,
+    "latency_median_s": 4.0975519543102905
+   },
+   "400": {
+    "detected": 2,
+    "episodes": 2,
+    "correct_label": 2,
+    "labelled_incidents": 2,
+    "false_alerts": 1,
+    "latency_median_s": 3.5975519543102905
+   }
+  }
+ },
+ "exfil_speed": {
+  "param": "mbytes",
+  "points": {
+   "1": {
+    "detected": 0,
+    "episodes": 2,
+    "correct_label": 0,
+    "labelled_incidents": 0,
+    "false_alerts": 1,
+    "latency_median_s": NaN
+   },
+   "3": {
+    "detected": 2,
+    "episodes": 2,
+    "correct_label": 0,
+    "labelled_incidents": 5,
+    "false_alerts": 1,
+    "latency_median_s": 57.09755195431029
+   },
+   "6": {
+    "detected": 2,
+    "episodes": 2,
+    "correct_label": 0,
+    "labelled_incidents": 2,
+    "false_alerts": 1,
+    "latency_median_s": 15.59755195431029
+   },
+   "12": {
+    "detected": 2,
+    "episodes": 2,
+    "correct_label": 2,
+    "labelled_incidents": 2,
+    "false_alerts": 1,
+    "latency_median_s": 13.09755195431029
+   },
+   "24": {
+    "detected": 2,
+    "episodes": 2,
+    "correct_label": 2,
+    "labelled_incidents": 2,
+    "false_alerts": 1,
+    "latency_median_s": 13.09755195431029
+   }
+  }
+ },
+ "packet_loss": {
+  "param": "loss",
+  "points": {
+   "0.0": {
+    "detected": 4,
+    "episodes": 4,
+    "correct_label": 3,
+    "labelled_incidents": 4,
+    "false_alerts": 0,
+    "latency_median_s": 15.383660277235677
+   },
+   "0.1": {
+    "detected": 4,
+    "episodes": 4,
+    "correct_label": 3,
+    "labelled_incidents": 4,
+    "false_alerts": 0,
+    "latency_median_s": 15.383660277235677
+   },
+   "0.3": {
+    "detected": 4,
+    "episodes": 4,
+    "correct_label": 2,
+    "labelled_incidents": 4,
+    "false_alerts": 4,
+    "latency_median_s": 16.383660277235677
+   },
+   "0.5": {
+    "detected": 4,
+    "episodes": 4,
+    "correct_label": 1,
+    "labelled_incidents": 4,
+    "false_alerts": 0,
+    "latency_median_s": 21.883660277235677
+   }
+  }
+ },
+ "observation_mode": "NOT RUN: engines are trained on the unpaired view; egress/ingress-only need their own baselines (future work)"
+}

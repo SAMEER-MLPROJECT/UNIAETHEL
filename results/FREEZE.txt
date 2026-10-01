@@ -1,0 +1,5 @@
+frozen_params.json sha256=8197b215a4045449016ad667b8944d28da6ed861f2466bfd6dadc221c83aee5a
+config_hash=d5767031c385f50cbaf6de4cda079218735662dad32f56ad1f32c1bfa58345ab
+primary=G_plus_trajectory
+frozen_at_unix=1790761074
+test captures scored before freeze: 0

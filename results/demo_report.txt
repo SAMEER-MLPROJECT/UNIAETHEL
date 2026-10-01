@@ -1,0 +1,148 @@
+demo1_c2: expected C2       got C2            (incidents on 10.0.0.25: 1; other hosts: 0)
+
+INCIDENT #0
+Host: 10.0.0.25
+Counterparty: 198.51.100.42 (1 destinations, 1 sources seen)
+Window: 146-299 s  (duration 154 s)
+
+Evidence vector (incident mean / max):
+  Mahalanobis       0.20 / 0.55
+  Isolation Forest  0.33 / 0.47
+  TCN               1.00 / 1.00
+  Graph             0.97 / 0.99
+Behavioural anomaly severity (peak): 1.00   (tau_sev 0.985; not a probability)
+Corroboration (mean): 2.0/4   peak 2/4
+Persistence (mean): 0.99
+Trajectory: Stable, peak state HIGH_CONFIDENCE
+
+Attack-vector compatibility scores (not probabilities):
+  C2            0.463
+  RECON         0.145
+  EXFIL         0.072
+  DDOS          0.000
+
+Classification: C2-like beaconing
+Reason:
+  - recurrence concentrated on a single destination (phi=1.00)
+  - strong temporal recurrence to a previously unseen destination (phi=0.89)
+  - sequence departs from what the temporal model predicts (phi=1.00)
+  - communication structure changed (phi=0.97)
+  - multidomain corroboration 2.0/4, persisted 154 s
+
+demo2_recon: expected RECON    got UNKNOWN       (incidents on 10.0.0.25: 1; other hosts: 0)
+
+INCIDENT #0
+Host: 10.0.0.25
+Counterparty: 10.0.2.12 (21 destinations, 0 sources seen)
+Window: 130-299 s  (duration 170 s)
+
+Evidence vector (incident mean / max):
+  Mahalanobis       0.84 / 1.00
+  Isolation Forest  0.84 / 0.96
+  TCN               0.96 / 1.00
+  Graph             0.96 / 1.00
+Behavioural anomaly severity (peak): 1.00   (tau_sev 0.985; not a probability)
+Corroboration (mean): 2.4/4   peak 3/4
+Persistence (mean): 0.96
+Trajectory: Stable, peak state HIGH_CONFIDENCE
+
+Attack-vector compatibility scores (not probabilities):
+  RECON         0.335
+  C2            0.329
+  EXFIL         0.142
+  DDOS          0.098
+
+Classification: UNKNOWN / AMBIGUOUS
+Reason:
+  - best profile RECON scored 0.335 (tau_class 0.415) with margin 0.006 over C2 (delta 0.095): not enough evidence to name a known vector
+  - multidomain corroboration 2.4/4, persisted 170 s
+
+demo3_ddos: expected DDOS     got DDOS          (incidents on 10.0.0.80: 1; other hosts: 0)
+
+INCIDENT #0
+Host: 10.0.0.80
+Counterparty: 34.142.179.241 (239 destinations, 22731 sources seen)
+Window: 119-218 s  (duration 100 s)
+
+Evidence vector (incident mean / max):
+  Mahalanobis       0.99 / 1.00
+  Isolation Forest  0.91 / 0.99
+  TCN               1.00 / 1.00
+  Graph             0.92 / 1.00
+Behavioural anomaly severity (peak): 1.00   (tau_sev 0.985; not a probability)
+Corroboration (mean): 2.9/4   peak 4/4
+Persistence (mean): 0.98
+Trajectory: Stable, peak state HIGH_CONFIDENCE
+
+Attack-vector compatibility scores (not probabilities):
+  DDOS          0.535
+  C2            0.403
+  RECON         0.232
+  EXFIL         0.115
+
+Classification: DDoS-like
+Reason:
+  - many sources converging on one target (phi=0.91)
+  - packet-rate surge at the target (phi=0.91)
+  - correlated statistical deviation (phi=0.92)
+  - byte-rate surge at the target (phi=0.91)
+  - multidomain corroboration 2.9/4, persisted 100 s
+
+demo4_exfil: expected EXFIL    got EXFIL         (incidents on 10.0.0.25: 1; other hosts: 0)
+
+INCIDENT #0
+Host: 10.0.0.25
+Counterparty: 198.51.100.77 (1 destinations, 1 sources seen)
+Window: 132-278 s  (duration 147 s)
+
+Evidence vector (incident mean / max):
+  Mahalanobis       1.00 / 1.00
+  Isolation Forest  0.88 / 0.91
+  TCN               0.97 / 1.00
+  Graph             0.99 / 0.99
+Behavioural anomaly severity (peak): 0.99   (tau_sev 0.985; not a probability)
+Corroboration (mean): 2.9/4   peak 3/4
+Persistence (mean): 0.95
+Trajectory: Stable, peak state HIGH_CONFIDENCE
+
+Attack-vector compatibility scores (not probabilities):
+  EXFIL         0.602
+  C2            0.476
+  RECON         0.238
+  DDOS          0.105
+
+Classification: Exfiltration-like
+Reason:
+  - sustained transfer (phi=0.96)
+  - abnormal outbound volume (phi=0.93)
+  - new persistent external relationship (phi=1.00)
+  - long-duration flow (phi=0.94)
+  - multidomain corroboration 2.9/4, persisted 147 s
+
+demo5_unknown: expected UNKNOWN  got UNKNOWN       (incidents on 10.0.0.25: 2; other hosts: 0)
+
+INCIDENT #1
+Host: 10.0.0.25
+Counterparty: 10.0.0.53 (1 destinations, 0 sources seen)
+Window: 192-268 s  (duration 77 s)
+
+Evidence vector (incident mean / max):
+  Mahalanobis       1.00 / 1.00
+  Isolation Forest  0.85 / 0.89
+  TCN               0.84 / 0.90
+  Graph             0.99 / 0.99
+Behavioural anomaly severity (peak): 0.99   (tau_sev 0.985; not a probability)
+Corroboration (mean): 2.0/4   peak 2/4
+Persistence (mean): 0.61
+Trajectory: Stable, peak state HIGH_CONFIDENCE
+
+Attack-vector compatibility scores (not probabilities):
+  C2            0.169
+  RECON         0.105
+  EXFIL         0.089
+  DDOS          0.046
+
+Classification: UNKNOWN / AMBIGUOUS
+Reason:
+  - best profile C2 scored 0.169 (tau_class 0.415) with margin 0.064 over RECON (delta 0.095): not enough evidence to name a known vector
+  - multidomain corroboration 2.0/4, persisted 77 s
