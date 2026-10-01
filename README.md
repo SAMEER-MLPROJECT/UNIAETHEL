@@ -2,7 +2,7 @@
 
 ### Passive behavioural threat detection for networks monitored through a data diode
 
-**Smart India Hackathon 2026 · SIH26145 · NTRO · Team EigenThinkers**
+**Smart India Hackathon 2026 · SIH26145 · NTRO · Team EigenThinkers, INSPIRED BY PREVIOUS RESEARCH MANUSCRIPT ABOUT PREDICTIVE MAINTAINENCE IN POWER GRID**
 
 UniAethel is a research prototype for detecting and interpreting cyber-threat behaviour when a monitoring enclave receives only a **one-way copy of network traffic**. It does not probe hosts, send replies, perform handshakes, or depend on payload decryption.
 
@@ -58,9 +58,9 @@ The implementation is deliberately **not** a supervised LightGBM classifier. The
 
 The four scores remain separate:
 
-\[
-A_t=[A_M,A_{IF},A_{TCN},A_G]
-\]
+$$
+A_t = [A_M, A_{IF}, A_{TCN}, A_G]
+$$
 
 A single high score is not automatically an incident.
 
@@ -68,16 +68,13 @@ A single high score is not automatically an incident.
 
 ## Attack-vector decision
 
-For each candidate vector \(k\in\{C2,RECON,DDOS,EXFIL\}\):
+For each candidate vector $k \in \{C2, RECON, DDOS, EXFIL\}$:
 
-\[
-S_k=\frac{C}{4}P\sum_jw_{kj}\phi_{kj}
-\]
+$$S_k = \frac{C}{4}P\sum_j w_{kj}\phi_{kj}$$
 
-where `C` is engine agreement, `P` is persistence, and \(\phi_{kj}\) are normalized behavioural features relevant to the candidate vector.
+where `C` is engine agreement, `P` is persistence, and $\phi_{kj}$ are normalized behavioural features relevant to the candidate vector.
 
 The winner is accepted only if:
-
 ```text
 max(S_k) >= τ_class
 AND
