@@ -1,4 +1,4 @@
-"""Severity, corroboration, persistence, trajectory, compatibility functions, unknown rejection, graph, ledger."""
+"""27/09/2026 , 6TH FILE RECHECK AGAIN BEFORE SUBMIT"""
 import copy
 import numpy as np
 import pandas as pd
@@ -55,11 +55,11 @@ def test_compatibility_functions_pick_the_matching_profile(cfg):
 def test_unknown_rejection_threshold_and_margin(cfg):
     agg = aggregate_incident(_seg(cfg, A_TCN=1, A_G=1, periodicity=1, destination_persistence=1, destination_focus=1), cfg)
     assert decide_class(agg, 0.1, 0.05)["label"] == "C2"
-    assert decide_class(agg, 0.99, 0.05)["label"] == "UNKNOWN"             # below tau_class
+    assert decide_class(agg, 0.99, 0.05)["label"] == "UNKNOWN"             
     amb = aggregate_incident(_seg(cfg, A_G=1, A_IF=1, fan_out=0.5, new_edge_rate=0.5, periodicity=0.5,
                                   destination_persistence=0.5, destination_focus=0.5), cfg)
     s = sorted(amb["scores"].values())
-    assert decide_class(amb, 0.0, (s[-1] - s[-2]) + 1e-6)["label"] == "UNKNOWN"   # margin rejection
+    assert decide_class(amb, 0.0, (s[-1] - s[-2]) + 1e-6)["label"] == "UNKNOWN"   
 
 
 def test_tail_transform_bounds():
