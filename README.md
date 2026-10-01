@@ -16,8 +16,6 @@ A conventional IDS can often rely on bidirectional session state, active verific
 
 The Overview:
 
-The Overview:
-
 ```mermaid
 flowchart TB
 
@@ -28,7 +26,7 @@ flowchart TB
     A --> B
     B --> C
 
-    subgraph ENGINES["FOUR COMPLEMENTARY BEHAVIOURAL ENGINES"]
+    subgraph E["FOUR COMPLEMENTARY BEHAVIOURAL ENGINES"]
         direction LR
 
         M["MAHALANOBIS<br/>JOINT GEOMETRY<br/>Output: A_M"]
@@ -79,6 +77,7 @@ flowchart TB
     class F,H fusion;
     class V,X decision;
     class K,U,Z output;
+```
 
 The implementation is purposefully **not** a supervised LightGBM classifier. The final vector decision uses explicit compatibility functions with threshold and margin rejection; unknown or ambiguous behaviour remains `UNKNOWN`.
 
