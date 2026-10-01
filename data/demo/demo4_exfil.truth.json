@@ -1,0 +1,23 @@
+{
+ "type": "exfil",
+ "seed": 42,
+ "duration": 300,
+ "events": [
+  {
+   "cls": "EXFIL",
+   "host": "10.0.0.25",
+   "t_start": 115.61633972276432,
+   "t_end": 265.61633972276434,
+   "dst": "198.51.100.77",
+   "type": "exfil",
+   "params": {
+    "mbytes": 15,
+    "host": "10.0.0.25",
+    "dst": "198.51.100.77",
+    "duration_s": 150,
+    "chunk_period_s": 0
+   }
+  }
+ ],
+ "packets": 52483
+}

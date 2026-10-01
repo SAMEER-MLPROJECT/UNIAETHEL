@@ -1,0 +1,22 @@
+{
+ "type": "ddos",
+ "seed": 42,
+ "duration": 300,
+ "events": [
+  {
+   "cls": "DDOS",
+   "host": "10.0.0.80",
+   "t_start": 115.61633972276432,
+   "t_end": 205.61633972276434,
+   "type": "ddos",
+   "params": {
+    "peak_pps": 300,
+    "ramp_s": 30,
+    "target": "10.0.0.80",
+    "sources": 400,
+    "duration_s": 90
+   }
+  }
+ ],
+ "packets": 49614
+}
