@@ -1,11 +1,9 @@
-"""Capture loading: pcap -> packets -> directional flows -> windows (cached by file hash + mode)."""
-from __future__ import annotations
 
+from __future__ import annotations
 import hashlib
 import json
 import pickle
 from pathlib import Path
-
 import numpy as np
 
 from .capture.pcap import read_pcap
@@ -20,7 +18,6 @@ def sha256_file(path: str) -> str:
         for b in iter(lambda: f.read(1 << 20), b""):
             h.update(b)
     return h.hexdigest()
-
 
 def load_capture(pcap: str, cfg: dict, mode: str | None = None, loss: float = 0.0, baseline: dict | None = None,
                  use_cache: bool = True) -> dict:
