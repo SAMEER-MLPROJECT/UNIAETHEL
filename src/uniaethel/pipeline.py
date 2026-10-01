@@ -1,11 +1,11 @@
-"""Four-engine pipeline: fit on BENIGN only -> calibrate on BENIGN validation -> evidence.
+"""Four-engine pipelin:
 
-The same rolling windows feed all four engines, each through its own representation:
-  Mahalanobis       host-relative numerical feature vector (Ledoit-Wolf covariance)
-  Isolation Forest  host-relative multivariate feature vector
+The same rolling windows feed all four engine each through its own representation:
+Mahalanobis       host-relative numerical feature vector (2nd stahe testing)
+  Isolation Forest  host-relative multivariate feature vector  ( reedit before submissionn )
   Causal TCN        sequence of the host's previous windows (next-window prediction)
-  Graph + Louvain   directed communication graph of observed packets (rolling 30 s)
-No decision is taken before all four engines have produced evidence.
+Louvain   directed communication graph of observed packets (rolling 30 s)
+
 """
 from __future__ import annotations
 
@@ -24,7 +24,6 @@ from .models.tcn import TCNEngine
 STAT_FEATS = ["log_pps_out", "log_bps_out", "fan_out", "log_pps_in", "fan_in"]
 PHI_RAW = ["pps_in", "bps_in", "fan_in", "fan_out", "unique_dst_ports", "bps_out", "max_flow_duration",
            "burst_growth", "new_edges", "persistent_new_edges"]
-
 
 def tag(F: pd.DataFrame, cid: int) -> pd.DataFrame:
     F = F.copy(); F["cap"] = cid
@@ -58,7 +57,6 @@ class Pipeline:
         self.phical = {k: HostCalibrator(q) for k in PHI_RAW}
         self.calibrated = False
 
-    # ------------------------------------------------------------------ fit (benign only)
     def fit_graph(self, train: list[dict]) -> dict:
         """Pass 1: learn benign communication relationships (needed for periodicity_new features)."""
         k = max(1, int(round(len(train) * 2 / 3)))
@@ -83,8 +81,7 @@ class Pipeline:
     @property
     def baseline_relationships(self) -> dict:
         return self.graph.baseline_nbrs
-
-    # ------------------------------------------------------------------ raw scores
+      
     def _raw(self, pk: pd.DataFrame, F: pd.DataFrame, n_w: int) -> dict:
         Z = self._rep(F)
         self.graph.n_w = n_w
@@ -100,7 +97,11 @@ class Pipeline:
         d["new_edges"] = gf["new_edges"].values; d["persistent_new_edges"] = gf["persistent_new_edges"].values
         return d
 
-    # ------------------------------------------------------------------ calibrate (benign validation only)
+
+
+
+
+  
     def calibrate(self, val_benign: list[dict]) -> None:
         raws = {k: [] for k in self.cals}; phis = {k: [] for k in PHI_RAW}; hosts = []
         for c in val_benign:
@@ -118,7 +119,9 @@ class Pipeline:
             cal.fit(np.concatenate(phis[k]), H)
         self.calibrated = True
 
-    # ------------------------------------------------------------------ evidence
+
+
+  
     def evidence(self, pk: pd.DataFrame, F: pd.DataFrame, n_w: int) -> pd.DataFrame:
         assert self.calibrated, "calibrate() first"
         r = self._raw(pk, F, n_w)
@@ -135,9 +138,7 @@ class Pipeline:
         ph = self._phi_raw(F, r["graph"])
         for k in PHI_RAW:
             out["phi_" + k] = tail(self.phical[k].transform(ph[k], hosts))
-        out["phi_focus"] = 1.0 - out["phi_fan_out"]     # recurring relationship with few destinations
-        # C2 recurrence terms count only when the recurrence is concentrated (a cyclic scan re-contacts
-        # each of many targets on a schedule, which is regular but not concentrated)
+        out["phi_focus"] = 1.0 - out["phi_fan_out"]     
         out["phi_c2_periodicity"] = out["periodicity_new"] * out["phi_focus"]
         out["phi_c2_jitter"] = out["jitter_regularity_new"] * out["phi_focus"]
         out["phi_c2_persistence"] = out["destination_persistence"] * out["phi_focus"]
