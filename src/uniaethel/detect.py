@@ -1,10 +1,8 @@
-"""Golden path for one capture: windows -> 4 engines -> evidence -> corroboration -> persistence
--> trajectory -> incidents -> attack-vector compatibility -> explainable alert -> forensic record."""
+
 from __future__ import annotations
 
 import hashlib
 import json
-
 import numpy as np
 import pandas as pd
 
@@ -13,7 +11,6 @@ from .forensics.ledger import Ledger
 from .fusion.attack_vector import aggregate_incident, decide_class, window_scores
 from .fusion.decision import PRIMARY, decide
 from .fusion.trajectory import STATE_NAMES
-
 
 def score_capture(cap: dict, bundle: dict, config_name: str = PRIMARY) -> tuple[pd.DataFrame, list[dict]]:
     pipe, frozen, cfg = bundle["pipe"], bundle["frozen"], bundle["cfg"]
@@ -49,6 +46,9 @@ def trend(seg: pd.DataFrame) -> str:
     return "Increasing" if k > 1e-3 else ("Decreasing" if k < -1e-3 else "Stable")
 
 
+
+
+
 def counterparty(pk: pd.DataFrame, host: str, a: int, b: int, cfg: dict) -> dict:
     w = cfg["windowing"]["window_seconds"]
     o = pk[(pk["src"] == host) & (pk["ts"] > a - w) & (pk["ts"] <= b + 1)]
@@ -57,7 +57,6 @@ def counterparty(pk: pd.DataFrame, host: str, a: int, b: int, cfg: dict) -> dict
     return {"top_destination": top.index[0] if len(top) else None, "distinct_destinations": int(o["dst"].nunique()),
             "distinct_sources": int(i["src"].nunique()), "outbound_bytes": float(o["bytes"].sum()),
             "inbound_packets": int(len(i))}
-
 
 def graph_snapshot_hash(pk: pd.DataFrame, host: str, a: int, b: int) -> str:
     e = pk[((pk["src"] == host) | (pk["dst"] == host)) & (pk["ts"] >= a) & (pk["ts"] <= b + 1)]
@@ -83,7 +82,6 @@ def explain(rec: dict, tau_sev: float, cfg: dict) -> str:
     L += ["", f"Classification: {c['display']}", "Reason:"] + [f"  - {r}" for r in c["reasons"]]
     L.append(f"  - multidomain corroboration {a['C_mean']:.1f}/4, persisted {a['duration_s']} s")
     return "\n".join(L)
-
 
 def write_ledger(recs: list[dict], cap: dict, ledger_path: str, capture_name: str) -> Ledger:
     try:
