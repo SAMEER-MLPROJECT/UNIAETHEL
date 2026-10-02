@@ -1,5 +1,3 @@
-"""Robustness sweeps with the FROZEN system (sweep seeds never used elsewhere).
-    python scripts/run_robustness.py  -> results/robustness.json + results/figures/robustness.png"""
 import json, pickle, glob
 import numpy as np
 from _common import ROOT, log
