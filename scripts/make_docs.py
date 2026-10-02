@@ -1,4 +1,3 @@
-"""Generate README.md, docs/EXPERIMENTS.md and docs/BENCHMARK.md from results/*.json (no hand-typed numbers)."""
 import json
 from _common import ROOT
 A = json.load(open(ROOT / "results/ablation.json")); C = json.load(open(ROOT / "results/classification.json"))
@@ -34,13 +33,13 @@ after freezing.
 
 {F}
 
-## Ablation A-G (held-out test)
+
 {tab(LAD)}
 
-## Component removal from the full system (G)
+
 {tab(REM)}
 
-## Attack-vector classification (primary G, incident level)
+
 tau_class = {C['tau_class']:.4f}, delta_margin = {C['delta_margin']:.4f} (set on validation so ~10% of known validation incidents would be rejected).
 
 {chr(10).join(cm)}
@@ -48,12 +47,12 @@ tau_class = {C['tau_class']:.4f}, delta_margin = {C['delta_margin']:.4f} (set on
 Known-class incidents: {C['known_correct']}/{C['known_incidents']} correct, {C['known_rejected_as_unknown']} rejected as UNKNOWN,
 0 confused between known classes. Unknown scenario: {C['unknown_rejected']}/{C['unknown_incidents']} incidents rejected as UNKNOWN.
 
-## Robustness (frozen system, dedicated seeds)
+
 | sweep | result |
 |---|---|
 {chr(10).join(rob)}
 
-## Demo scenarios (scripts/run_demo.py)
+
 {chr(10).join('- ' + l for l in demo_lines)}
 
 ## Honest reading
@@ -88,7 +87,7 @@ Streaming (live packet-by-packet) latency is NOT RUN; these are batch replay mea
 readme = f"""# UniAethel - passive threat inference for one-way (data-diode) traffic
 SIH 2026 - SIH26145 (NTRO) - team EigenThinkers. Research prototype.
 
-**The prototype does not actively scan or probe hosts. It infers behavioural anomalies from traffic already visible on the monitored one-way observation path.**
+** The prototype does not actively scan or probe hosts. It infers behavioural anomalies from traffic already visible on the monitored one-way observation path.**
 Evaluation performed on reproducibly generated synthetic traffic.
 
 ## 1. Problem
