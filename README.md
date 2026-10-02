@@ -278,7 +278,7 @@ These are documented as limitations, not hidden from the evaluation.
 
 ## Submission material
 
-The SIH26145 submission deck is retained at [`docs/FINAL SUBMISSION`](docs/FINALSUBMISSION).
+The SIH26145 submission deck is retained at [`docs/FINAL_SUBMISSION`](docs/FINAL_SUBMISSION).
 
 ---
 
