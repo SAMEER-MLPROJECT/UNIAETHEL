@@ -1,5 +1,3 @@
-"""Golden-path demo: 5 demo PCAPs -> full pipeline -> explainable incidents -> hash-linked ledger -> dashboard data.
-    python scripts/run_demo.py"""
 import json, pickle
 import networkx as nx
 import numpy as np
@@ -28,7 +26,7 @@ for name, exp in EXPECT.items():
     write_ledger(mine, cap, ledger, name)
     h = T[T["host"] == host]
     snap = {}
-    if main:                                   # graph view: host-centred edges during the incident vs before it
+    if main:                                   
         pk = cap["pk"]; a, z = main["w_start"], main["w_end"]
         cur = pk[((pk.src == host) | (pk.dst == host)) & (pk.ts >= a) & (pk.ts <= z)]
         prev = pk[((pk.src == host) | (pk.dst == host)) & (pk.ts < a) & (pk.ts >= max(0, a - 60))]
