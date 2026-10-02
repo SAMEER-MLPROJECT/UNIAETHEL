@@ -1,5 +1,4 @@
-"""Throughput / latency / memory benchmark of the full golden path on one core (batch replay).
-    python scripts/benchmark.py -> results/benchmark.json"""
+
 import json, pickle, platform, resource, time, glob
 import numpy as np, psutil, sklearn, networkx, pandas as pd
 from _common import ROOT, log
