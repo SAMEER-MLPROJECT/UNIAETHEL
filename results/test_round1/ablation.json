@@ -1,0 +1,417 @@
+{
+ "hours_normal_and_attack": 1.5,
+ "hours_hard_negative": 0.8333333333333334,
+ "configs": {
+  "STAT_univariate_threshold": {
+   "detected": 2,
+   "episodes": 16,
+   "recall": 0.125,
+   "precision": 0.2857142857142857,
+   "f1": 0.17391304347826086,
+   "false_alerts_normal_traffic": 3,
+   "fp_per_hour_normal": 2.0,
+   "false_alerts_hard_negatives": 2,
+   "fp_per_hour_hard_negative_captures": 2.4,
+   "latency_median_s": 3.629580217243749,
+   "latency_p95_s": 3.95264325529102,
+   "recall_by_class": {
+    "C2": "0/4",
+    "DDOS": "2/2",
+    "EXFIL": "0/4",
+    "RECON": "0/4",
+    "UNKNOWN": "0/2"
+   },
+   "hard_negative_alerts_by_type": {
+    "flash_crowd": 1,
+    "load_test": 1
+   },
+   "tau_sev": 0.9994376586748096
+  },
+  "A_IF_only": {
+   "detected": 0,
+   "episodes": 16,
+   "recall": 0.0,
+   "precision": 0.0,
+   "f1": 0.0,
+   "false_alerts_normal_traffic": 3,
+   "fp_per_hour_normal": 2.0,
+   "false_alerts_hard_negatives": 0,
+   "fp_per_hour_hard_negative_captures": 0.0,
+   "latency_median_s": NaN,
+   "latency_p95_s": NaN,
+   "recall_by_class": {
+    "C2": "0/4",
+    "DDOS": "0/2",
+    "EXFIL": "0/4",
+    "RECON": "0/4",
+    "UNKNOWN": "0/2"
+   },
+   "hard_negative_alerts_by_type": {},
+   "tau_sev": 0.9985322007323779
+  },
+  "B_M_IF": {
+   "detected": 6,
+   "episodes": 16,
+   "recall": 0.375,
+   "precision": 0.375,
+   "f1": 0.375,
+   "false_alerts_normal_traffic": 9,
+   "fp_per_hour_normal": 6.0,
+   "false_alerts_hard_negatives": 11,
+   "fp_per_hour_hard_negative_captures": 13.2,
+   "latency_median_s": 11.129580217243749,
+   "latency_p95_s": 25.559059682825566,
+   "recall_by_class": {
+    "C2": "0/4",
+    "DDOS": "2/2",
+    "EXFIL": "0/4",
+    "RECON": "4/4",
+    "UNKNOWN": "0/2"
+   },
+   "hard_negative_alerts_by_type": {
+    "backup": 6,
+    "load_test": 4,
+    "flash_crowd": 1
+   },
+   "tau_sev": 0.9968377223398316
+  },
+  "C_M_IF_TCN": {
+   "detected": 8,
+   "episodes": 16,
+   "recall": 0.5,
+   "precision": 0.18181818181818182,
+   "f1": 0.26666666666666666,
+   "false_alerts_normal_traffic": 15,
+   "fp_per_hour_normal": 10.0,
+   "false_alerts_hard_negatives": 21,
+   "fp_per_hour_hard_negative_captures": 25.2,
+   "latency_median_s": 14.771812762004032,
+   "latency_p95_s": 30.038229021235427,
+   "recall_by_class": {
+    "C2": "4/4",
+    "DDOS": "2/2",
+    "EXFIL": "0/4",
+    "RECON": "2/4",
+    "UNKNOWN": "0/2"
+   },
+   "hard_negative_alerts_by_type": {
+    "software_update": 8,
+    "load_test": 5,
+    "telemetry_new": 3,
+    "heartbeat": 1,
+    "api_polling": 1,
+    "flash_crowd": 1,
+    "backup": 1,
+    "cloud_sync": 1
+   },
+   "tau_sev": 0.9978455653099682
+  },
+  "D_all_four_engines": {
+   "detected": 10,
+   "episodes": 16,
+   "recall": 0.625,
+   "precision": 0.1875,
+   "f1": 0.28846153846153844,
+   "false_alerts_normal_traffic": 20,
+   "fp_per_hour_normal": 13.333333333333334,
+   "false_alerts_hard_negatives": 32,
+   "fp_per_hour_hard_negative_captures": 38.4,
+   "latency_median_s": 22.12958021724375,
+   "latency_p95_s": 162.66547611036012,
+   "recall_by_class": {
+    "C2": "4/4",
+    "DDOS": "2/2",
+    "EXFIL": "0/4",
+    "RECON": "4/4",
+    "UNKNOWN": "0/2"
+   },
+   "hard_negative_alerts_by_type": {
+    "load_test": 8,
+    "backup": 8,
+    "software_update": 8,
+    "telemetry_new": 3,
+    "heartbeat": 1,
+    "api_polling": 1,
+    "inventory": 1,
+    "flash_crowd": 1,
+    "cloud_sync": 1
+   },
+   "tau_sev": 0.9953584111663872
+  },
+  "E_plus_corroboration": {
+   "detected": 10,
+   "episodes": 16,
+   "recall": 0.625,
+   "precision": 0.18461538461538463,
+   "f1": 0.2850356294536817,
+   "false_alerts_normal_traffic": 20,
+   "fp_per_hour_normal": 13.333333333333334,
+   "false_alerts_hard_negatives": 33,
+   "fp_per_hour_hard_negative_captures": 39.6,
+   "latency_median_s": 22.12958021724375,
+   "latency_p95_s": 162.66547611036012,
+   "recall_by_class": {
+    "C2": "4/4",
+    "DDOS": "2/2",
+    "EXFIL": "0/4",
+    "RECON": "4/4",
+    "UNKNOWN": "0/2"
+   },
+   "hard_negative_alerts_by_type": {
+    "software_update": 9,
+    "load_test": 8,
+    "backup": 8,
+    "telemetry_new": 3,
+    "heartbeat": 1,
+    "api_polling": 1,
+    "inventory": 1,
+    "flash_crowd": 1,
+    "cloud_sync": 1
+   },
+   "tau_sev": 0.9953584111663872
+  },
+  "F_plus_persistence": {
+   "detected": 10,
+   "episodes": 16,
+   "recall": 0.625,
+   "precision": 0.2,
+   "f1": 0.30303030303030304,
+   "false_alerts_normal_traffic": 15,
+   "fp_per_hour_normal": 10.0,
+   "false_alerts_hard_negatives": 25,
+   "fp_per_hour_hard_negative_captures": 30.0,
+   "latency_median_s": 24.12958021724375,
+   "latency_p95_s": 146.14368432412738,
+   "recall_by_class": {
+    "C2": "4/4",
+    "DDOS": "2/2",
+    "EXFIL": "0/4",
+    "RECON": "4/4",
+    "UNKNOWN": "0/2"
+   },
+   "hard_negative_alerts_by_type": {
+    "software_update": 9,
+    "load_test": 7,
+    "telemetry_new": 3,
+    "heartbeat": 1,
+    "api_polling": 1,
+    "inventory": 1,
+    "flash_crowd": 1,
+    "backup": 1,
+    "cloud_sync": 1
+   },
+   "tau_sev": 0.9917459581473198
+  },
+  "G_plus_trajectory": {
+   "detected": 10,
+   "episodes": 16,
+   "recall": 0.625,
+   "precision": 0.20833333333333334,
+   "f1": 0.3125,
+   "false_alerts_normal_traffic": 15,
+   "fp_per_hour_normal": 10.0,
+   "false_alerts_hard_negatives": 23,
+   "fp_per_hour_hard_negative_captures": 27.599999999999998,
+   "latency_median_s": 24.12958021724375,
+   "latency_p95_s": 146.14368432412738,
+   "recall_by_class": {
+    "C2": "4/4",
+    "DDOS": "2/2",
+    "EXFIL": "0/4",
+    "RECON": "4/4",
+    "UNKNOWN": "0/2"
+   },
+   "hard_negative_alerts_by_type": {
+    "software_update": 8,
+    "load_test": 6,
+    "telemetry_new": 3,
+    "heartbeat": 1,
+    "api_polling": 1,
+    "inventory": 1,
+    "flash_crowd": 1,
+    "backup": 1,
+    "cloud_sync": 1
+   },
+   "tau_sev": 0.9917459581473198
+  },
+  "G_without_TCN": {
+   "detected": 8,
+   "episodes": 16,
+   "recall": 0.5,
+   "precision": 0.43478260869565216,
+   "f1": 0.46511627906976744,
+   "false_alerts_normal_traffic": 6,
+   "fp_per_hour_normal": 4.0,
+   "false_alerts_hard_negatives": 7,
+   "fp_per_hour_hard_negative_captures": 8.4,
+   "latency_median_s": 32.98853914840738,
+   "latency_p95_s": 144.17189253789465,
+   "recall_by_class": {
+    "C2": "0/4",
+    "DDOS": "2/2",
+    "EXFIL": "0/4",
+    "RECON": "4/4",
+    "UNKNOWN": "2/2"
+   },
+   "hard_negative_alerts_by_type": {
+    "load_test": 4,
+    "cloud_sync": 2,
+    "flash_crowd": 1
+   },
+   "tau_sev": 0.9931870793094204
+  },
+  "G_without_Graph": {
+   "detected": 4,
+   "episodes": 16,
+   "recall": 0.25,
+   "precision": 0.09302325581395349,
+   "f1": 0.13559322033898305,
+   "false_alerts_normal_traffic": 15,
+   "fp_per_hour_normal": 10.0,
+   "false_alerts_hard_negatives": 24,
+   "fp_per_hour_hard_negative_captures": 28.799999999999997,
+   "latency_median_s": 6.771812762004032,
+   "latency_p95_s": 7.228308965429204,
+   "recall_by_class": {
+    "C2": "0/4",
+    "DDOS": "2/2",
+    "EXFIL": "0/4",
+    "RECON": "2/4",
+    "UNKNOWN": "0/2"
+   },
+   "hard_negative_alerts_by_type": {
+    "software_update": 8,
+    "telemetry_new": 6,
+    "load_test": 4,
+    "api_polling": 3,
+    "flash_crowd": 1,
+    "backup": 1,
+    "cloud_sync": 1
+   },
+   "tau_sev": 0.9968377223398316
+  },
+  "G_without_Mahalanobis": {
+   "detected": 8,
+   "episodes": 16,
+   "recall": 0.5,
+   "precision": 0.16,
+   "f1": 0.24242424242424243,
+   "false_alerts_normal_traffic": 20,
+   "fp_per_hour_normal": 13.333333333333334,
+   "false_alerts_hard_negatives": 22,
+   "fp_per_hour_hard_negative_captures": 26.4,
+   "latency_median_s": 21.271812762004032,
+   "latency_p95_s": 37.88806557463664,
+   "recall_by_class": {
+    "C2": "4/4",
+    "DDOS": "2/2",
+    "EXFIL": "0/4",
+    "RECON": "2/4",
+    "UNKNOWN": "0/2"
+   },
+   "hard_negative_alerts_by_type": {
+    "software_update": 8,
+    "load_test": 5,
+    "telemetry_new": 3,
+    "heartbeat": 1,
+    "api_polling": 1,
+    "inventory": 1,
+    "flash_crowd": 1,
+    "backup": 1,
+    "cloud_sync": 1
+   },
+   "tau_sev": 0.99
+  },
+  "G_without_IF": {
+   "detected": 12,
+   "episodes": 16,
+   "recall": 0.75,
+   "precision": 0.25,
+   "f1": 0.375,
+   "false_alerts_normal_traffic": 15,
+   "fp_per_hour_normal": 10.0,
+   "false_alerts_hard_negatives": 21,
+   "fp_per_hour_hard_negative_captures": 25.2,
+   "latency_median_s": 28.912853830840398,
+   "latency_p95_s": 144.1154761103601,
+   "recall_by_class": {
+    "C2": "4/4",
+    "DDOS": "2/2",
+    "EXFIL": "2/4",
+    "RECON": "4/4",
+    "UNKNOWN": "0/2"
+   },
+   "hard_negative_alerts_by_type": {
+    "software_update": 8,
+    "load_test": 5,
+    "telemetry_new": 3,
+    "heartbeat": 1,
+    "api_polling": 1,
+    "flash_crowd": 1,
+    "backup": 1,
+    "cloud_sync": 1
+   },
+   "tau_sev": 0.9943765867480965
+  },
+  "G_without_corroboration": {
+   "detected": 10,
+   "episodes": 16,
+   "recall": 0.625,
+   "precision": 0.24,
+   "f1": 0.3468208092485549,
+   "false_alerts_normal_traffic": 15,
+   "fp_per_hour_normal": 10.0,
+   "false_alerts_hard_negatives": 23,
+   "fp_per_hour_hard_negative_captures": 27.599999999999998,
+   "latency_median_s": 24.12958021724375,
+   "latency_p95_s": 117.14368432412739,
+   "recall_by_class": {
+    "C2": "4/4",
+    "DDOS": "2/2",
+    "EXFIL": "0/4",
+    "RECON": "4/4",
+    "UNKNOWN": "0/2"
+   },
+   "hard_negative_alerts_by_type": {
+    "software_update": 8,
+    "load_test": 6,
+    "telemetry_new": 3,
+    "heartbeat": 1,
+    "api_polling": 1,
+    "inventory": 1,
+    "flash_crowd": 1,
+    "backup": 1,
+    "cloud_sync": 1
+   },
+   "tau_sev": 0.9917459581473198
+  },
+  "G_arithmetic_severity": {
+   "detected": 2,
+   "episodes": 16,
+   "recall": 0.125,
+   "precision": 0.06896551724137931,
+   "f1": 0.08888888888888889,
+   "false_alerts_normal_traffic": 17,
+   "fp_per_hour_normal": 11.333333333333334,
+   "false_alerts_hard_negatives": 10,
+   "fp_per_hour_hard_negative_captures": 12.0,
+   "latency_median_s": 22.12958021724375,
+   "latency_p95_s": 29.20264325529102,
+   "recall_by_class": {
+    "C2": "0/4",
+    "DDOS": "2/2",
+    "EXFIL": "0/4",
+    "RECON": "0/4",
+    "UNKNOWN": "0/2"
+   },
+   "hard_negative_alerts_by_type": {
+    "load_test": 5,
+    "software_update": 2,
+    "inventory": 1,
+    "flash_crowd": 1,
+    "cloud_sync": 1
+   },
+   "tau_sev": 0.9853220073237793
+  }
+ }
+}

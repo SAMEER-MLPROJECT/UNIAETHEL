@@ -1,0 +1,17 @@
+09:33:13 INFO test: 28 captures (10 with hard negatives), 16 malicious episodes
+09:33:13 INFO STAT_univariate_threshold  det  2/16  prec 0.29  F1 0.17  FP/h normal 2.00  HN alerts 2  lat 3.629580217243749
+09:33:13 INFO A_IF_only                  det  0/16  prec 0.00  F1 0.00  FP/h normal 2.00  HN alerts 0  lat nan
+09:33:13 INFO B_M_IF                     det  6/16  prec 0.38  F1 0.38  FP/h normal 6.00  HN alerts 11  lat 11.129580217243749
+09:33:13 INFO C_M_IF_TCN                 det  8/16  prec 0.18  F1 0.27  FP/h normal 10.00  HN alerts 21  lat 14.771812762004032
+09:33:13 INFO D_all_four_engines         det 10/16  prec 0.19  F1 0.29  FP/h normal 13.33  HN alerts 32  lat 22.12958021724375
+09:33:13 INFO E_plus_corroboration       det 10/16  prec 0.18  F1 0.29  FP/h normal 13.33  HN alerts 33  lat 22.12958021724375
+09:33:13 INFO F_plus_persistence         det 10/16  prec 0.20  F1 0.30  FP/h normal 10.00  HN alerts 25  lat 24.12958021724375
+09:33:13 INFO G_plus_trajectory          det 10/16  prec 0.21  F1 0.31  FP/h normal 10.00  HN alerts 23  lat 24.12958021724375
+09:33:13 INFO G_without_TCN              det  8/16  prec 0.43  F1 0.47  FP/h normal 4.00  HN alerts 7  lat 32.98853914840738
+09:33:13 INFO G_without_Graph            det  4/16  prec 0.09  F1 0.14  FP/h normal 10.00  HN alerts 24  lat 6.771812762004032
+09:33:13 INFO G_without_Mahalanobis      det  8/16  prec 0.16  F1 0.24  FP/h normal 13.33  HN alerts 22  lat 21.271812762004032
+09:33:13 INFO G_without_IF               det 12/16  prec 0.25  F1 0.38  FP/h normal 10.00  HN alerts 21  lat 28.912853830840398
+09:33:13 INFO G_without_corroboration    det 10/16  prec 0.24  F1 0.35  FP/h normal 10.00  HN alerts 23  lat 24.12958021724375
+09:33:13 INFO G_arithmetic_severity      det  2/16  prec 0.07  F1 0.09  FP/h normal 11.33  HN alerts 10  lat 22.12958021724375
+09:33:14 INFO classification: known accuracy 0.6, unknown rejection None (0 unknown incidents), false-reject 0.4
+09:33:14 INFO episode level: {'C2': {'episodes': 4, 'detected': 4, 'correct_label': 4, 'labels': {'C2': 4}}, 'DDOS': {'episodes': 2, 'detected': 2, 'correct_label': 2, 'labels': {'DDOS': 2}}, 'EXFIL': {'episodes': 4, 'detected': 0, 'correct_label': 0, 'labels': {'MISSED': 4}}, 'RECON': {'episodes': 4, 'detected': 4, 'correct_label': 0, 'labels': {'UNKNOWN': 4}}, 'UNKNOWN': {'episodes': 2, 'detected': 0, 'correct_label': 0, 'labels': {'MISSED': 2}}}

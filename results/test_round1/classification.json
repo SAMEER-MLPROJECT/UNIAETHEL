@@ -1,0 +1,163 @@
+{
+ "tau_class": 0.4042005375238982,
+ "delta_margin": 0.08144972600576543,
+ "confusion_incidents": {
+  "C2": {
+   "C2": 4,
+   "RECON": 0,
+   "DDOS": 0,
+   "EXFIL": 0,
+   "UNKNOWN": 0
+  },
+  "RECON": {
+   "C2": 0,
+   "RECON": 0,
+   "DDOS": 0,
+   "EXFIL": 0,
+   "UNKNOWN": 0
+  },
+  "DDOS": {
+   "C2": 0,
+   "RECON": 0,
+   "DDOS": 2,
+   "EXFIL": 0,
+   "UNKNOWN": 0
+  },
+  "EXFIL": {
+   "C2": 0,
+   "RECON": 0,
+   "DDOS": 0,
+   "EXFIL": 0,
+   "UNKNOWN": 0
+  },
+  "UNKNOWN": {
+   "C2": 0,
+   "RECON": 4,
+   "DDOS": 0,
+   "EXFIL": 0,
+   "UNKNOWN": 0
+  }
+ },
+ "per_class": {
+  "C2": {
+   "precision": 1.0,
+   "recall": 1.0
+  },
+  "RECON": {
+   "precision": null,
+   "recall": 0.0
+  },
+  "DDOS": {
+   "precision": 1.0,
+   "recall": 1.0
+  },
+  "EXFIL": {
+   "precision": null,
+   "recall": null
+  },
+  "UNKNOWN": {
+   "precision": 0.0,
+   "recall": null
+  }
+ },
+ "known_incident_accuracy": 0.6,
+ "known_false_rejection_rate": 0.4,
+ "unknown_rejection_rate": null,
+ "unknown_incidents": 0,
+ "episode_level": {
+  "C2": {
+   "episodes": 4,
+   "detected": 4,
+   "correct_label": 4,
+   "labels": {
+    "C2": 4
+   }
+  },
+  "DDOS": {
+   "episodes": 2,
+   "detected": 2,
+   "correct_label": 2,
+   "labels": {
+    "DDOS": 2
+   }
+  },
+  "EXFIL": {
+   "episodes": 4,
+   "detected": 0,
+   "correct_label": 0,
+   "labels": {
+    "MISSED": 4
+   }
+  },
+  "RECON": {
+   "episodes": 4,
+   "detected": 4,
+   "correct_label": 0,
+   "labels": {
+    "UNKNOWN": 4
+   }
+  },
+  "UNKNOWN": {
+   "episodes": 2,
+   "detected": 0,
+   "correct_label": 0,
+   "labels": {
+    "MISSED": 2
+   }
+  }
+ },
+ "false_alert_labels": {
+  "UNKNOWN": 26,
+  "C2": 10,
+  "RECON": 1,
+  "EXFIL": 1
+ },
+ "hard_negative_false_alerts": {
+  "api_polling": {
+   "C2": 1
+  },
+  "backup": {
+   "UNKNOWN": 1
+  },
+  "c2": {
+   "UNKNOWN": 3
+  },
+  "cloud_sync": {
+   "EXFIL": 1
+  },
+  "ddos": {
+   "UNKNOWN": 2
+  },
+  "exfil": {
+   "UNKNOWN": 3
+  },
+  "flash_crowd": {
+   "RECON": 1
+  },
+  "heartbeat": {
+   "C2": 1
+  },
+  "inventory": {
+   "UNKNOWN": 1
+  },
+  "load_test": {
+   "UNKNOWN": 6
+  },
+  "normal": {
+   "UNKNOWN": 2
+  },
+  "recon": {
+   "UNKNOWN": 3
+  },
+  "software_update": {
+   "C2": 5,
+   "UNKNOWN": 3
+  },
+  "telemetry_new": {
+   "C2": 3
+  },
+  "unknown_dns_tunnel": {
+   "UNKNOWN": 2
+  }
+ }
+}
