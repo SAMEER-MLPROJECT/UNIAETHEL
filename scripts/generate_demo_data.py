@@ -1,12 +1,12 @@
-"""Generate every capture (train/val/test/demo/sweeps) deterministically and write data/MANIFEST.yaml.
-
-    python scripts/generate_demo_data.py [--seed 42] [--backend fast|scapy] [--only demo]
-All traffic is synthetic and written to local files only; nothing is transmitted."""
+"""SYNTHETIC TRAFFFIC GEN  """
 import argparse, time
 import yaml
 from _common import ROOT, log
 from uniaethel.config import load_config, seed_everything
 from uniaethel.simulation.generate import generate
+
+
+
 
 ap = argparse.ArgumentParser(); ap.add_argument("--seed", type=int, default=42)
 ap.add_argument("--backend", default="fast", choices=["fast", "scapy"]); ap.add_argument("--only", default=None)
