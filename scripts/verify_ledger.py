@@ -1,4 +1,3 @@
-"""python scripts/verify_ledger.py [--ledger results/ledger.json] [--tamper-test]  (exit 1 if broken)"""
 import argparse, copy, sys, time
 from _common import ROOT
 from uniaethel.forensics.ledger import Ledger
