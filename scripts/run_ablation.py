@@ -1,6 +1,4 @@
-"""Score the held-out TEST split once with the FROZEN bundle: ablation A-G, component removal,
-false alerts on normal traffic vs benign look-alikes, attack-vector confusion matrix, unknown rejection.
-    python scripts/run_ablation.py   -> results/ablation.json, results/classification.json"""
+
 import json, pickle
 import numpy as np, pandas as pd, yaml
 from _common import ROOT, log
