@@ -1,4 +1,4 @@
-"""One command: python scripts/run_all.py"""
+
 import subprocess, sys
 from _common import ROOT
 steps = ["generate_demo_data.py", "train_models.py", "run_demo.py", "run_ablation.py", "run_robustness.py", "benchmark.py",
