@@ -1,4 +1,4 @@
-# Limitations (stated, not hidden)
+# Limitations (CURRENTLY WORKING UPON )
 1. Synthetic traffic only; no real-network validation.
 2. Small test set (16 attack episodes); each episode is ~6 percentage points of recall.
 3. False alerts: several per hour on held-out captures, concentrated on the public web server and two workstations. Per-host
