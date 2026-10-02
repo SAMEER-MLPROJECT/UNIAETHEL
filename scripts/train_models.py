@@ -1,7 +1,3 @@
-"""Fit engines on BENIGN training captures, calibrate on BENIGN validation, set decision thresholds
-(tau_sev per ablation rung, tau_class / delta_margin) on validation, then FREEZE.
-
-    python scripts/train_models.py"""
 import hashlib, json, pickle, time
 import numpy as np
 from _common import ROOT, log
@@ -16,18 +12,19 @@ T0 = time.time()
 cfg = load_config(ROOT / "configs/default.yaml")
 pipe = Pipeline(cfg)
 train0 = [load_capture(f, cfg) for f in split_files(cfg, "train")]
-base = pipe.fit_graph(train0)                                   # pass 1: benign relationships
+base = pipe.fit_graph(train0)                                   
 train = [load_capture(f, cfg, baseline=base) for f in split_files(cfg, "train")]
 log.info("train: %d benign captures, %d windows", len(train), sum(len(c["F"]) for c in train))
-pipe.fit(train)                                                 # pass 2: M, IF, TCN
+pipe.fit(train)                                                 
 log.info("engines fitted on benign only; TCN loss %.3f -> %.3f; Ledoit-Wolf shrinkage %.3f",
          pipe.tcn.loss_history[0], pipe.tcn.loss_history[-1], pipe.maha.shrinkage_)
 base = pipe.baseline_relationships
 val_files = split_files(cfg, "val")
-val_benign = [load_capture(f, cfg, baseline=base) for f in val_files if "/normal_" in f]  # 6 captures in round 2
+val_benign = [load_capture(f, cfg, baseline=base) for f in val_files if "/normal_" in f]  
 pipe.calibrate(val_benign)
 log.info("per-host calibration on %d benign validation captures", len(val_benign))
-# operating point: normal validation traffic + validation attacks. Benign hard negatives are NEVER used
+
+
 # for tuning - they are a stress test reported separately (docs/EXPERIMENTS.md).
 import yaml
 man = {c["file"]: c for c in yaml.safe_load(open(ROOT / "data/MANIFEST.yaml"))["captures"]}
