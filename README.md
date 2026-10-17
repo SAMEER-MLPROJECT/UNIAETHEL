@@ -2,7 +2,7 @@
 
 ### Passive behavioural threat detection for networks monitored through a data diode
 
-**Smart India Hackathon 2026 · SIH26145 · NTRO · Team EigenThinkers, INSPIRED BY PREVIOUS RESEARCH MANUSCRIPT ABOUT PREDICTIVE MAINTAINENCE IN POWER GRID**
+**Team EigenThinkers, INSPIRED BY PREVIOUS RESEARCH MANUSCRIPT ABOUT PREDICTIVE MAINTAINENCE IN POWER GRID**
 
 UniAethel is a research prototype for detecting and interpreting cyber-threat behaviour when a monitoring enclave receives only a **one-way copy of network traffic**. It does not probe hosts, send replies, perform handshakes, or depend on payload decryption.
 
