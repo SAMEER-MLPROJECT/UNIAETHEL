@@ -276,9 +276,6 @@ These are documented as limitations, not hidden from the evaluation.
 
 ---
 
-## Submission material
-
-The submission deck is retained at [`docs/FINAL_SUBMISSION`](docs/FINAL_SUBMISSION).
 
 ---
 
@@ -286,7 +283,7 @@ The submission deck is retained at [`docs/FINAL_SUBMISSION`](docs/FINAL_SUBMISSI
 
 UniAethel grew from earlier work on behavioural anomaly detection and tamper-evident records in a smart-grid setting. That earlier project provided methodological inspiration; its performance numbers are **not reused** for this network-security evaluation.
 
-See the SIH deck and the research/reference documentation for the stated lineage.
+See the Submitted deck and the research/reference documentation for the stated lineage.
 
 ---
 
