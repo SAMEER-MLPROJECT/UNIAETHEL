@@ -292,6 +292,7 @@ See the Submitted deck and the research/reference documentation for the stated l
 **Implemented:** PCAP ingestion, directional flows, four engines, calibration, fusion, persistence, trajectory, attack-vector layer, UNKNOWN rejection, explanations, hash ledger, API/dashboard, synthetic scenario generator, evaluation and tests.
 
 **Experimentally verified:** frozen synthetic-PCAP evaluation described above.
+**Future:** independent real-traffic validation, live streaming, diode hardware testbed, larger benign calibration corpus.
 
 ## Original Work, Authorship and Intellectual Property
 
@@ -309,4 +310,4 @@ Third-party components, if any, remain subject to their respective licenses and 
 
 See the `LICENSE` file for the applicable rights notice.
 
-**Future:** independent real-traffic validation, live streaming, diode hardware testbed, larger benign calibration corpus.
+
