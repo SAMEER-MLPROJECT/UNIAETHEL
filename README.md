@@ -293,4 +293,20 @@ See the Submitted deck and the research/reference documentation for the stated l
 
 **Experimentally verified:** frozen synthetic-PCAP evaluation described above.
 
+## Original Work, Authorship and Intellectual Property
+
+**Original Author: Sameer Saawan**  
+**Project: UniAethel**  
+**Copyright: © 2026 Sameer Saawan. All rights reserved.**
+
+UniAethel is a passive behavioural threat-detection project. The original implementation and project materials are independently developed by Sameer Saawan.
+
+The original work includes the project's source code, detection pipeline, system architecture documentation, machine-learning implementation, network-flow analysis components, configurations, technical documentation, diagrams, and other original materials.
+
+Unless expressly authorized by the relevant rights holder, no permission is granted to reproduce, redistribute, modify, publish, or commercially exploit the original copyrighted materials beyond rights permitted by applicable law.
+
+Third-party components, if any, remain subject to their respective licenses and ownership rights.
+
+See the `LICENSE` file for the applicable rights notice.
+
 **Future:** independent real-traffic validation, live streaming, diode hardware testbed, larger benign calibration corpus.
