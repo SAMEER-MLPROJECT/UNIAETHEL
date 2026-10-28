@@ -1,4 +1,4 @@
-# Stage 1 — joint geometry + multivariate novelty
+# Stage 1 - joint geometry + multivariate novelty
 
 The next configuration combined host-relative Mahalanobis distance with Isolation Forest.
 
